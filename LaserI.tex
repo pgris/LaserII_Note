@@ -1,0 +1,101 @@
+
+
+
+\subsection{Overview of the \lasa~system}
+
+The \lasa~system is composed of three main parts: optical, calibration and electronics.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=7cm]{figures/FullSystem.png}
+\caption{Sketch of the optical part of the \lasa~system. At first 3 photodiodes were measuring the light before the filter wheel and one photodiode was plugged after the \coimbra~box. The configuration is now different: one photodiode before the filter wheel and three after the \coimbra~system.}\label{fig:lasaoptical}
+\end{figure}
+
+
+\begin{itemize}
+\item optical part \\
+	The optical part of the \lasa~system is sketched on Figure \ref{fig:lasaoptical}. It is composed of three parts:
+	\begin{itemize}
+	\item the \las~box (Fig. \ref{fig:lasabox}): the light emitted by the diode pumped solid state \las~from SpectraPhysics (green beam with $\lambda$ = 532 nm) is splitted by a semi-reflecting mirror. A small amount of the light (about 9\%) is sent to a light-mixing block, composed of reflective filters, light diffusers and a light mixer, and transmitted to a bundle of 9 fibers. \par
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[height=7cm]{figures/LaserBox.png}
+			\caption{Picture of the \las~box of the \lasa~system}\label{fig:lasabox}
+		\end{figure}	
+			
+		Two of these fibers are connected to two \pmts, used for timing purposes (trigger), and one is linked to a photodiode to ensure an absolute measurement of the light. The other part of the \las~light is sent to one of the attenuating filter located on a wheel and then to a liquid fiber that transmits the output light to the \coimbra~system. \par
+                 The \las~box is equipped with a custom-built electromechanical shutter for safety purpose. This semi-passive component aims at isolating the \las~box from the \tilecal: the \las~light is transmitted only to the optical components of the box and not to the \pmt~of the \tilecal. 
+
+	\item the \coimbra~box : this system transmits the light coming from a liquid fiber to a bundle of long clear fibers that are connected to the \pmts~of the \tilecal. It is composed of a divergent lens, an unpolished acrylic disk (used as a diffuser), and a convergent lens.
+	\item clear fibers of about 100 to 120 m long transfer the light coming out of the \coimbra~box to the 9852 \pmts~of the \tilecal. There are 400 fibers (1 fiber for two half-modules for the central calorimeter, 1 fiber for each half-module of the extended barrels, and 16 spare fibers). 
+	\end{itemize}
+		
+\item calibration part \\
+	
+	The photodiodes box, located inside the \las~box, houses four photodiodes and their electronics calibrated thanks to an Americium $\alpha$-source (3.7 kBq). The box temperature is regulated with Peltier modules and the humidity is controlled via an air dry flow. The inter-calibration of the photodiodes is performed regularly via specific runs when the embedded source is moved along the photodiodes. 
+	
+\item electronics part \\
+	
+	The set of electronics modules used to control and command the \lasa~system is shown on figure \ref{fig:lasaelectronics}. It is housed inside a VME crate and is composed of the following modules:
+	\begin{figure}[htbp]
+			\centering
+			\includegraphics[height=7cm]{figures/Electronics.png}
+			\caption{Picture of the electronics part of the \lasa~system}\label{fig:lasaelectronics}
+		\end{figure}	
+		
+	\begin{itemize}
+	\item {\sc LILASII}: dedicated to the measurement of the linearity of the electronics of the photodiodes
+	\item {\sc ADC}: converts the \las~box analog signals (from the two \pmts~and the four photodiodes) into digital ones.
+	\item {\sc SLAMA}: system command (trigger) and communication with \atlas.
+	\item {\sc LASTROD}: \las~\tilecal~ReadOut driven: sends the \las~data to \atlas DAQ.
+	\item {\sc MOTOR COMMAND}: used for mechanical commands (wheel of filters, shutter, radioactive $\alpha$-source)
+	\item \las~safety: system monitoring and control (DCS, interlocks)
+	\end{itemize}
+	
+\end{itemize}
+
+
+
+\subsection{Performance}
+A monitoring of the various components of the \las~system is performed regularly and its performance evaluated.  The measurements considered are:
+\begin{itemize}
+\item{pedestal runs} \\
+	
+	Pedestal may be estimated with dedicated runs or during the calibration runs (with the $\alpha$-source). Significant variations may show potential electronics problems. A stability better than 0.5\% has been observed on the mean pedestal values \cite{laserb}.
+\item{photodiode stability monitoring} \\
+	
+	The monitoring is performed during the calibration runs thanks to the $\alpha$ source. The mean of the photodiodes signal is chosen to monitor the stability, which is about 0.15\% over few months.
+	
+\item{linearity of the electronics of the photodiodes}\\
+	
+	The linearity of the electronics of the photodiodes is performed through {\sc LILASII}. A known charge is injected to the electronics (preamplifiers, ADC and the related electronics chain) that digitize the photodiode signals. An additional ADC is used to digitize the charge injected. 
+\item{PMT/Diode ratio in the \las~box}\\
+	
+	The two \pmts~of the \las~box are primarily used for triggering purpose. But they may also be part of the stability surveys of the \las~system through the study of the ratio of the \pmts~signal to the Diode1 one. Over a few months period, a stability at the level of 0.6\% has been observed \cite{laserb}.
+	
+\item{\tilecal~channels stability monitoring}\\
+	
+	This is the main purpose of the \las~system: monitoring the behavior of the 9852 \pmts~of the \tilecal~and pointing at possible drifts. Signals from the \pmts~may be normalized to diode measurements so as to minimize the instabilities of the intensity of the light emitted by the \las.  \par
+	For each \pmt~the ratio $f_{las}={{PMT~signal}\over{Diode1~signal}}$ is estimated for a \las~reference run, defined as the first \las~run performed after a Cesium scan, and for a given run. A fiber-to-fiber correction is applied to compensate for light instabilities and inhomogeneities, which account for the main source of systematic uncertainties. The channel variation may be estimated from ${{f_{las}^{run}}\over{f_{las}^{ref}}}-1$ and a stability at the level of 0.6\% has been observed over a few month period.
+	
+	
+\end{itemize}
+
+
+\subsection{Shortcomings}
+The \las~system installed in USA15 is performing extremely well. Nonetheless few shortcomings have been observed and may be solved to get an even better system:
+\begin{itemize}
+\item{\coimbra~box instabilities} \\
+	
+	The amount of light sent to each of the 400 fibers coming out of the \coimbra~system must be very stable in time, since it is this signal that is used to estimate the stability of the \pmts~of the \tilecal. But a decrease of the light in the fibers of about 4\% over a period of 1.5 month has been observed. This effect is at the moment handled via software corrections but understanding and solving this problem would allow a gain of sensitivity of the system.
+	
+\item{Photodiode box grounding problem} \\
+	
+	During an $\alpha$-source run, it has been shown that, when the source is in front of a given photodiode, the pedestals measured by the other photodiodes are not the same as the ones measured during a pedestal run, when the source is located in its garage position. This problem is related to cross-talk of the ground. It has been solved by re-designing the bus card along which transit the low voltages for the electronics of the photodiodes and the signals coming from the preamplifiers. This new card has been installed in USA15 in 2011. \par
+	Another effect has been observed: when photodiodes are illuminated all at a time by a \las~signal with a given intensity, the signal seen by the electronics for a given photodiode differs significantly from the one measured when only this photodiode receives a \las~light of the same intensity. This optical cross-talk had already been observed in 2009, and was attenuated in the following way: when a given photodiode is illuminated with a \las~light corresponding to a given intensity, all other photodiodes are operated in reverse.
+		
+\item{Filters non-uniformity}
+	
+	The filters that are used to increase the \las~dynamic range are inserted into a moving wheel. The reproducibility of the position of the wheel has been estimated by performing consecutive \las~runs at a given intensity after a rotation of the wheel. An effect at the level of few \% has been observed. This could be measured and corrected with photodiodes inserted between the rotating wheel and the \coimbra~box.
+	
+\end{itemize}

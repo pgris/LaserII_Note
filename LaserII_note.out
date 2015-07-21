@@ -1,0 +1,22 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The LASERI system during P1: performance and shortcomings}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Overview of the LASER I system}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Performance}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Shortcomings}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{The LASERII system}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Overview}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Internal calibration part}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.1}{PHOCAL}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Charge injection}{subsection.3.2}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Optics box}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Optical path}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Light mixers and filter wheel}{subsection.3.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Beam expander}{subsection.3.3}% 14
+\BOOKMARK [2][-]{subsection.3.4}{Electronics}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.4.1}{LASCAR}{subsection.3.4}% 16
+\BOOKMARK [3][-]{subsubsection.3.4.2}{VME}{subsection.3.4}% 17
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Processor}{subsection.3.4}% 18
+\BOOKMARK [2][-]{subsection.3.5}{DAQ}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.6}{DCS}{section.3}% 20
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 21
+\BOOKMARK [0][-]{part*.6}{Appendix}{}% 22

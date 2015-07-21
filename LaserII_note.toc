@@ -1,0 +1,25 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {UKenglish}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}The LASERI system during P1: performance and shortcomings}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Overview of the {\sc LASER~I}~system}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Performance}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Shortcomings}{6}{subsection.2.3}
+\contentsline {section}{\numberline {3}The LASERII system}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Overview}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Internal calibration part}{10}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}{\sc PHOCAL}}{10}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Charge injection}{10}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}Optics box}{10}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Optical path}{10}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Light mixers and filter wheel}{10}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Beam expander}{10}{subsubsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4}Electronics}{10}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}LASCAR}{10}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}VME}{10}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Processor}{10}{subsubsection.3.4.3}
+\contentsline {subsection}{\numberline {3.5}DAQ}{10}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}DCS}{10}{subsection.3.6}
+\contentsline {section}{\numberline {4}Conclusion}{10}{section.4}
+\contentsline {part}{Appendix}{11}{part*.6}
