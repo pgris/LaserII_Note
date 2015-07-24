@@ -1,0 +1,173 @@
+
+%- description of the LASERII DAQ; interface with ATLAS; type of runs, data sent (fragments structure) ;
+
+The \lasii{} system is controlled by the \atlas{} DAQ through the {\tt TileLaserRCD} application,
+which includes the \lasmodule{} library. This library has three main functions:
+\begin{itemize}
+\item control of the \lascar{} \vme{} board, in order to configure the \lasii{} system
+hardware at the start of a new run and at its end;
+\item monitoring of the \lasii{} system behaviour during a run in order to take actions in
+case of problems;
+\item publication in the Information Service (IS) of the status of the \lasii{} system.
+\end{itemize}
+
+\subsubsection{Control and monitoring of the system}
+The \lasmodule{} library controls and monitors the \lasii{} system by communicating with the
+\lascar{} board, thanks to the fact that the {\tt TileLaserRCD} application runs on the
+Single Board Computer (sbc-til-ttc-las-01) that controls the \lasii{} \vme{} crate.
+
+\paragraph{Running modes}
+At the start of a new \atlas{} or \tilecal{} run, the \lasmodule{} performs the following
+actions:
+\begin{enumerate}
+\item It checks the state of \lascar{} and reports a fatal error in case it is not found.
+\item It tries to retrieve the run and configuration parameters from the IS, in particular
+from the "TileParams.LasIIConfig" parameters (see table~\ref{tab:IS:lasIIconfig}) in order to configure the \lasii{}
+system according to them.
+\item It sets up the \lascar{} module according to the run type, as explained
+in the following paragraphs.
+\end{enumerate}
+
+\begin{table}[ht]
+  \begin{center}
+    \caption{Parameters of the "TileParams.LasIIConfig" object in IS.}\label{tab:IS:lasIIconfig}
+    \begin{tabular}{lll}
+      \hline\hline
+      Parameter & Content & Type \\
+      \hline
+      Filte & Filter wheel position (from 1 to 8)r & u32 \\
+      ShutterOpen & True means that the shutter is open & bool \\
+      Intensity & \las{} intensity value in arbitrary unit & u32 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\paragraph{LaserCalib or LaserAlpha}~\\
+This type of run is needed to perform a calibration of the \lasii{} system. In this
+LaserCalib mode, \lascar{} controls the \lasii{} components, without sending any
+\las{} pulse to \tilecal{}. Amplitudes of the signals produced by the photodiodes
+and the photomultipliers of the \lasii{} system are sent to the \atlas{} DAQ by \lascar{}.
+At the start of run, \lascar{} is put in the pedestal mode, i.e. the amplitudes
+are digitized randomly. Once enough events have been recorded in this mode,
+\lascar{} is switched to the next calibration mode, starting from the alpha mode, then the
+LED mode and finally the linearity mode increasing the injected charge from 0 to 60000 by steps
+of 10000. After the last linearity point, the run is either stopped (in the case of the
+LaserCalib run type) or \lascar{} is switched back to the alpha mode until the run is stopped
+manually (in the case of the LaserAlpha run type).
+
+\begin{itemize}
+\item{Laser (or LED)}~\\
+This is the main running mode to calibrate \tilecal{}, when the \las{} pulses are sent to the
+calorimeter under the control of the \shaft{} module. Amplitudes of the signals produced by the 
+photodiodes and the photomultipliers of the \lasii{} system are sent to the \atlas{} DAQ by 
+\lascar{}. At the start of run, the \lasmodule{} library configures \lascar{} to move the filter
+wheel to the requested position, as well as the shutter, and to start the \las{} pump with the 
+required intensity. Then it starts \lascar{} in the Laser mode.
+
+\item{Physics}~\\
+During physics runs, the \lasii{} system sends \las{} pulses to \tilecal{}, exactly like in
+a Laser run described previously. The only difference is at the start of run. In the case of
+a physics run, \lascar{} is first put in the internal calibration mode. This mode performs
+similar internal calibrations as in the LaserCalib runs (pedestal, alpha and LED, but no
+linearity) except that an internal trigger is used instead of the external signal coming from
+\shaft{}, and that the amplitudes are not sent to the \atlas{} DAQ but rather stored in the 
+\lascar{} memory. As soon as this internal calibration is completed, the \lasmodule{} library
+sets \lascar{} in Laser mode and fills histograms with the amplitudes recorded during this
+calibration. In order not to lose time, the filter wheel, the shutter and the \las{} pump
+are set to the required states prior to the start of the internal calibration.
+
+\item{Other types of runs}~\\
+For all other types of runs, \lascar{} is started in idle mode, but reacting to the
+trigger by sending fragments that contain only the header and the trailer.
+
+\paragraph{Actions during a run}
+Periodically during a run, the \lasmodule{} library performs some acions:
+\begin{itemize}
+\item It checks the state of the \lascar{} TTCrx circuit. In case of fault, an error is reported.
+\item It checks the state of the busy counter. If \lascar{} has been busy for a period longer
+than the given limit (in principle 5~s), a stopless removal request is sent to the DAQ.
+\item If \lascar{} is in Laser mode, it checks several parameters:
+  \begin{itemize}
+  \item The position of the filter wheel and of the shutter. In case the actual position does not
+    correspond to the requested one, an error is reported and \lascar{} is asked to move the
+    component to the requested position.
+  \item The \las{} pump status. In case the pump is off, an error is reported and \lascar{} is
+    asked to switch it on.
+  \item The number of \las{} pulses that have been 
+    requested, emitted and recorded. In case of missing pulses, warnings are reported.
+  \item The \lascar{} watchdog is restarted. If after five minutes the watchdog has
+    not been restarted, \lascar{} will automatically stop the \las{} pump. This allows protecting
+    the \lasii{} system from crashes of the \atlas{} DAQ.
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Stopless removal mechanism}
+During a run, if the \atlas{} DAQ decides to disable the \lasmodule{}, the shutter is closed,
+the \las{} pump is switched off and \lascar{} is stopped. The busy channel of the corresponding
+LTP is also disabled. An SMS is sent to the DAQ expert mobile phone.
+
+\paragraph{End of run}
+At the end of any run, the shutter is closed, the \las{} pump is switched off and \lascar{} is
+stopped.
+
+\subsubsection{Information published}
+The \lasmodule{} library publishes periodically several parameters of the \lasii{} system,
+for monitoring purposes. These parameters are published to the IS in the "TileParams.LasIIStatus" 
+object, described in table~\ref{tab:IS:lasIIstatus}
+
+\begin{table}[ht]
+  \begin{center}
+    \caption{Parameters of the "TileParams.LasIIStatus" object in IS.}\label{tab:IS:lasIIstatus}
+    \begin{tabular}{lll}
+      \hline\hline
+      Parameter & Content & Type \\
+      \hline
+      IsLASCAR & Status of LASCAR & string \\
+      DAQmode & LASCAR DAQ mode & string \\
+      NbLaserReq & Number of \las{} requests from \shaft{} & u32 \\
+      NbLaserReqPump & Number of \las{} requests to the pump & u32 \\
+      NbLaserPulses & Number of \las{} pulses emitted by the pump & u32 \\
+      NbGates & Number of gates generated by \lascar{} for amplitude digitization & u32 \\
+      NbLaserEmit & Number of \las{} emit signals sent to \shaft{} & u32 \\
+      NbLaserTT & Number of \las{} Trigger Type received & u32 \\
+      NbLaserFrag & Number of \las{} fragments sent & u32 \\
+      NbCalibFrag & Number of Calib fragments sent & u32 \\
+      NbCISTT & Number of CIS Trigger Type received & u32 \\
+      NbCISFrag & Number of CIS fragments sent & u32 \\
+      NbOtherTT & Number of other Trigger Type received & u32 \\
+      NbDefaultFrag & Number of default fragments sent & u32 \\
+      NbL1A & Number of L1A received & u32 \\
+      LastEvtID & Last Extended Event ID sent & u32 \\
+      LastBCID & Last BCID sent & u32 \\
+      LastTT & Last Trigger Type sent & u32 \\
+      LastLaserEvtID & Last Extended Event ID sent for a \las{} fragment & u32 \\
+      LastLaserBCID & Last BCID sent for a \las{} fragment & u32 \\
+      LastCISEvtID & Last Extended Event ID sent for a CIS fragment & u32 \\
+      LastCISBCID & Last BCID sent for a CIS fragment & u32 \\
+      NbToutTT & Number of timeouts while waiting for TT & u32 \\
+      NbToutData & Number of timeouts while waiting for TDC and QDC values & u32 \\
+      MaxFIFOBCID & Maximum BCID FIFO occupancy & u32 \\
+      MaxFIFOEvID & Maximum EvID FIFO occupancy & u32 \\
+      MaxFIFOTT & Maximum TT FIFO occupancy & u32 \\
+      IsBusy & True if busy for longer than the limit (5~s) & bool \\
+      NbBusy & Number of consecutive busies & u32 \\
+      NbBusyMax & Maximum number of consecutive busies observed & u32 \\
+      NbTTwhileBusy & Number of TT received while being busy & u32 \\
+      TXEnabled & True if output link is enabled & bool \\
+      LASCARStatus & Global status register of LASCAR & u32 \\
+      LastCombined & Timestamp of last internal calibration run & string \\
+      LastAutoStop & Timestamp of last automatic stop by watchdog & string \\
+      DiodePolarity & Polarity of the photodiodes & u32 \\
+      Filter & Filter wheel position & string \\
+      Shutter & Shutter state & string \\
+      IpumpReq & Requested \las{} pump intensity & u32 \\
+      IpumpMeas & Measured \las{} pump intensity & u32 \\
+      Ipump & Measured \las{} pump current & string \\
+      Tpump & Measured \las{} pump temperature & string \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
