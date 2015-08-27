@@ -1,10 +1,13 @@
 
 
-The photodiode box is a 3U subrack kit (Europac Pro 3U-84F P236 24563172 from Schroff) adapted to contain (\ref{fig:lasphotodiodebox}):
+The photodiode box is a 3U subrack kit (Europac Pro 3U-84F P236 24563172 from Schroff) adapted to contain (figure \ref{fig:lasphotodiodebox}):
 \begin{itemize}
 \item a set of ten modules dubbed cassettes; each cassette incorporates a Si PIN photodiode (Hamamatsu S3590-08) coupled to a preamplifier (see figure xx). The photodiode is equipped with an epoxy resin window, has an active area of 10x10 mm and a peak sensitivity wavelength of 960 nm. A reverse voltage of 12 V is applied.
 \item LicPhD card
-\item Char_Inj_Split card
+\item \charinjsplit~card
+\item Optic fibers: a set of two optics fibers is conncected at the rear end of the photodiode box, in front of each photodiode. One of this fiber is connected to the rear of phocal and is used to transmit the light emitted by the LED. The other fiber conveys the \laser~light and is plugged to the patch panel of optical filters. 
+\item Deflectors
+In USA15, electronics is cooled thanks to an air flow circulating from the bottom to the top of the racks. This flux may stir optics fibers plugged at the rear of the photodiode box, inducing a change of the curvature radius and hence a variation of the amount of light transmitted. Deflectors have been designed to minimize this effect and to ensure a stable configuration (in terms of position and curvature radius) of the optics fibers.
 \end{itemize}
 
 
@@ -12,5 +15,5 @@ The photodiode box is a 3U subrack kit (Europac Pro 3U-84F P236 24563172 from Sc
 \centering
 \includegraphics[height=8cm]{figures/Photodiodebox.pdf}
 \includegraphics[height=8cm]{figures/Photodiodebox2.pdf}
-\caption{View of the PHOCAL system}\label{fig:lasphotodiodebox}
+\caption{View of the Photodiode box}\label{fig:lasphotodiodebox}
 \end{figure}
