@@ -99,7 +99,7 @@ The FPGA will process these data prior to  a transmission to the TDAQ.
 
 \paragraph{HOLA}
 
-
+The HOLA card has been developed at CERN and is mounted on LASCAR. It is used for sending data fragments to the Read Out Buffer (ROB) via an optical fiber for each L1A.
 \begin{figure}[htbp]
 
 \centering
@@ -109,6 +109,8 @@ The FPGA will process these data prior to  a transmission to the TDAQ.
 
 \paragraph{LASER interface}
 
+This mixed interface (analog and digital) is used to control the LASER J40-BL6S. The LASER intensity is set with an analog voltage (from 0 to 4V) and the trigger part is done through a TTL signal.
+
 \begin{figure}[htbp]
 
 \centering
@@ -117,3 +119,51 @@ The FPGA will process these data prior to  a transmission to the TDAQ.
 \end{figure}
 
 \paragraph{Acquisition modes}
+
+There are two independent ways of running the \laser~system : the standalone mode and the "ATLAS TDAQ" mode.
+
+\begin{itemize}
+
+\item Standalone mode
+
+The standalone mode may be used to check that the \laser~system is responding as expected. Reference runs may be performed so as to monitor the stability of the system. The control interface of the QDC and of the TDC is done with the VME bus and the running frequency reaches about 100 Hz. The following possible modes are:
+\begin{itemize}
+
+\item Pedestal : to measure of the QDC output distributions when no input signal is injected. Pedestal values are subtracted when results from other modes (Alpha, LED, Linearity, LASER) are studied.
+
+\item Alpha : to estimate the response of the PHOCAL photodiode to alpha particles emitted by the Americium source. 
+
+\item LED : the LED signal is transmitted to all the photodiodes via optical fibers. In this mode  the stability of the ten photodiodes used to monitor the \laser~light may be surveyed.
+
+\item Linearity : a known charge is injected in the preamplifiers of the photodiodes so as to estimate the linearity and the stability of the electronics. 
+
+\item LASER : LASER signals with varying intensities are sent in the system. The light may or may not be transmitted to the TileCal PMTs, depending on the status of the shutter located inside the optics box.
+
+\end{itemize}
+
+-> Data format ? Location of the Data ? GUI interface ?
+
+\item ATLAS TDAQ mode
+
+This mode is used in two ways: twice a week when calibration runs are performed and during physics runs, when \laser~pulses are emitted in empty bunch-crossings (every second). The control interface is provided by the SHAFT electronic module which sends requests to LASCAR. Output data fragments are tranmitted via the HOLA card for each L1A and \laser~Trigger Type.
+
+The modes available are the same as in the standalone : Pedestal, Alpha, LED, Linearity, \laser. One possibility has been added. The "combined" mode consists in running Pedestal, LED and Alpha modes in a row. For each mode, the sum of the output values ($\Sigma$X) and of their squares ($\Sigma$X$^{2}$) are calculated and stored in a RAM. These values are then trasmitted in a data fragment (through the HOLA card for each L1A and \laser~Trigger Type) when the \laser~mode is activated.
+
+\end{itemize}
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption{Gate acquisition origin as a function of the running mode.}\label{tab:lascargates}
+    \begin{tabular}{ll}
+      \hline\hline
+      Mode & Gate trigger \\
+      \hline
+      Pedestal & VME register \\
+      Alpha & PHOCAL discriminator\\
+      LED & PHOCAL pulse \\
+	Linearity & VME register \\
+      \laser & PMT1 and PMT2 signal \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
