@@ -187,7 +187,7 @@ The stability of the ten photodiodes is performed through the monitoring of the 
 
 \item Optical filters are used to attenuate the LASER signal transmitted to the photodiodes and the PMTs.
 
-\item VME crate: two boards located in the VME crate are used to drive the \lasii~system: a VME processor, and \lascar, that incorporates a charge analog-to-digital converter (qADC), and SLAMA, LASTROD and LILAS cards.
+\item VME crate: two boards located in the VME crate are used to drive the \lasii~system: a VME Single Board Computer (SBC), and \lascar, that incorporates a charge analog-to-digital converter (qADC), and SLAMA, LASTROD and LILAS cards.
 
 \item POwer LASer (\polas): power supplies of the \lasii~system. \polas~provides low voltages (+5V, -5V, $\pm$15V,+12 V, +24 V) to electronic boards.
 
@@ -206,22 +206,21 @@ The stability of the ten photodiodes is performed through the monitoring of the 
 
 \input pmtbox.tex
 
-\subsubsection{Internal calibration system}
-
-\paragraph{PHOCAL}
-\\
+\subsubsection{Internal calibration system : PHOCAL}
 
 \input phocal.tex
 
-\paragraph{Charge injection}
+\subsubsection{VME SBC}
 
-\subsubsection{VME processor}
+\input sbc.tex
 
 \subsubsection{LASCAR}
 
 \input lascar.tex
 
 \subsubsection{POLAS}
+
+\input polas.tex
 
 \subsection{Optics}
 
@@ -230,6 +229,8 @@ The stability of the ten photodiodes is performed through the monitoring of the 
 \input opticsbox.tex
 
 \subsubsection{Optical filters}
+
+\input opticalfilters.tex
 
 %\subsubsection{Optical path}
 %\subsubsection{Light mixers and filter wheel}
