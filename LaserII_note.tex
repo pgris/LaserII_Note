@@ -61,7 +61,7 @@
 
 % Add you own definitions here (file LaserII_note-defs.sty).
 %\usepackage{LaserII_note-defs}
-\newcommand{\laser}{{\sc laser}}
+\newcommand{\laser}{laser}
 \newcommand{\las}{{\sc laser}}
 \newcommand{\lasa}{{\sc LASER~I}}
 \newcommand{\lasi}{{\sc LaserI}}
@@ -71,7 +71,7 @@
 \newcommand{\atlas}{{\sc ATLAS}}
 \newcommand{\pmts}{{\sc PMTs}}
 \newcommand{\pmt}{{\sc PMT}}
-\newcommand{\tilecal}{{\sc TILECAL}}
+\newcommand{\tilecal}{{\sc TileCal}}
 \newcommand{\vme}{{\sc VME}}
 \newcommand{\phocal}{{\sc PHOCAL}}
 \newcommand{\licphd}{{\sc LICPHD}}
@@ -82,6 +82,10 @@
 \newcommand{\charinjsplit}{{\sc CIS}}
 \newcommand{\coimbra}{Co\"{i}mbra}
 \newcommand{\mum}{$\mu m$}
+
+\newcommand{\shaft}{SHAFT}
+\newcommand{\lasmodule}{{\tt TileLasIIModule}}
+
 
 %-------------------------------------------------------------------------------
 % Generic document information
@@ -137,10 +141,12 @@ This document proposes a detailed description of the \laser~calibration system o
 \subsection{Electronics}
 
 \subsubsection{Photodiode box}
+\label{photodiodebox}
 
 \input photodiodebox.tex
 
 \subsubsection{PMT box}
+\label{pmtbox}
 
 \input pmtbox.tex
 
@@ -175,6 +181,8 @@ This document proposes a detailed description of the \laser~calibration system o
 %\subsubsection{Beam expander}
 
 \subsection{DAQ}
+\label{sec:daq}
+
 
 \input daq.tex
 
@@ -217,7 +225,7 @@ The list should be printed either here or before the table of contents.
 %-------------------------------------------------------------------------------
 \clearpage
 \appendix
-\part*{Appendix}
+%\part*{Appendix A}
 \addcontentsline{toc}{part}{Appendix}
 
 \input appendix.tex
