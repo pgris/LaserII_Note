@@ -61,11 +61,11 @@
 
 % Add you own definitions here (file LaserII_note-defs.sty).
 %\usepackage{LaserII_note-defs}
-\newcommand{\laser}{{\sc LASER}}
-\newcommand{\las}{{\sc LASER}}
+\newcommand{\laser}{{\sc laser}}
+\newcommand{\las}{{\sc laser}}
 \newcommand{\lasa}{{\sc LASER~I}}
-\newcommand{\lasi}{{\sc LASERI}}
-\newcommand{\lasii}{{\sc LASERII}}
+\newcommand{\lasi}{{\sc LaserI}}
+\newcommand{\lasii}{{\sc LaserII}}
 \newcommand{\lasb}{{\sc LASER~175}}
 \newcommand{\lasc}{{\sc LASER~II}}
 \newcommand{\atlas}{{\sc ATLAS}}
@@ -110,11 +110,12 @@
 \label{sec:intro}
 %-------------------------------------------------------------------------------
 
-The Atlas Tilecal hadronic calorimeter is equipped with a 3-level calibration system to monitor and  calibrate the response of the active devices (plastic scintillating tiles), the response of the PMTs receiving the light from clusters of tiles (cells), and the response of the Front End and digitization electronics of the individual readout channels. \par
+The Atlas Tilecal hadronic calorimeter (TileCal) \cite{ref:tilecal} is equipped with a 3-level calibration system to monitor and  calibrate the response of the active devices (plastic scintillating tiles), the response of the PMTs receiving the light from clusters of tiles (cells), and the response of the Front End and digitization electronics of the individual readout channels. \par
 The global detector calibration is performed monthly by measuring the individual cell response to a reference excitation produced by calibrated Cesium sources which float inside the detector through a suitable pipe network.
 Calibration of the PMTs and of the readout chain are performed between two sucessive Cesium scans; laser pulses are distributed to each individual PMT cathode (approximatively 10,000 channels) by a suitable optical distribution line having a power laser (several $\mu$J per pulse) as a source. Laser calibrations can be performed every two-three days during pauses of LHC collisions and during collision runs by pulsing the laser in the empty bunch intervals.  \par
-During the Long Shutdown I of LHC operations, the Tilecal laser calibration system has been re-designed, tested, and installed for the Run II operations. The shortcomings of the optical part have been studied, understood and solved. The LASER light injected in the PMTs is measured by sets of photodiodes at several stages of the optical path. The monitoring of the photodiodes is performed by a redundant internal calibration scheme using an LED, a radioactive source, and a charge injection system. \par
-A challenge of the new LASER project lied in the design of electronics boards that would overcome the shortcomings of the previous LASER system (interface with the LHC clock and saturation of the electronics for higher LASER intensities) and that would be compatible with the new requirements (increase of the number of photodiodes, new internal calibration scheme). A new electronics has been designed to achieve these goals.
+During the Long Shutdown I of LHC operations, the Tilecal \laser~calibration system has been re-designed, tested, and installed for the Run II operations. The shortcomings of the optical part have been studied, understood and solved. The \laser~light injected in the PMTs is measured by sets of photodiodes at several stages of the optical path. The monitoring of the photodiodes is performed by a redundant internal calibration scheme using an LED, a radioactive source, and a charge injection system. \par
+A challenge of the new \laser~project was lying in the design of electronics boards that would overcome the shortcomings of the previous \laser~system (interface with the LHC clock and saturation of the electronics for higher \laser~intensities) and that would be compatible with the new requirements (increase of the number of photodiodes, new internal calibration scheme). A new electronics has been designed to achieve these goals.\par
+This document proposes a detailed description of the \laser~calibration system of the TileCal and is organized as follows. In a first part the \laseri~system, operated up to october 2014, is depicted, its performance quoted and its shortcomings listed. The new \laser~structure, dubbed as \lasii, is described in a second part. Its main components (electronics, optics, data acquisition and control system) are specified. It should be noticed that this note aims at summarizing the hardware side of the \lasii~system. A separated document related to the performance will follow. 
 
 
 %-------------------------------------------------------------------------------
@@ -131,70 +132,7 @@ A challenge of the new LASER project lied in the design of electronics boards th
 
 \subsection{Overview}
 
-The main concern of the \lasii~project was to design a calibration system without \lasi~shortcomings while maintaining a high performance level in terms of precision and stability. The major improvements are summarized in table \ref{tab:lasii_imp}.
-\begin{table*}[!htpb]
- \begin{center}
- \begin{tabular}{|l|l|}
-\hline
-Critical Point & \lasii \\
-\hline
-Measurement of the LASER light & Number of photodiodes increased to 10+1 \\
-at each point of the optical path & \\
-\hline
-Adapt the calibration system of the photodiodes & Redundant calibration scheme: \\
-& (Light Emitting diode (LED) \\
-& and a static radioactive source \\
-\hline
-Insufficient light mixing of each optical set & New design of the beam expander \\
-& (light to the ~400 fibers of the TileCal)  \\
-& and of other mixers \\
-& (LASER head and filter wheel outputs) \\
-\hline
-Optics box in a vertical position & Optics box in an horizontal position\\
-\hline
-Saturation of the photodiode electronics & Dynamic range increased  (13 bits-ADC) \\
-\hline
-Electronics shortcomings  & new card including all functionnalities \\
-(LASTROD memory, LHC clock) & \\
-\hline
-\end{tabular}
-\caption{Critical points of the \lasi~system and improvements in the \lasii}\label{tab:lasii_imp}
-\end{center}
-\end{table*}
-\par
-A better estimation of the LASER light injected in the system is possible thanks to an increase of the number of photodiodes. In that case, the calibration scheme of the photodiodes used for the \lasi~(a moving radioactive source) is difficult to use. We thus moved to a system comprised of a Light Emitting Diode (LED) and of a static radioactive source. The LED signal is injected in the ten photodiodes dedicated to the measurement of the LASER light and in a reference photodiode monitored through the static radioactive source. 
-\par
-The optical path is a critical point of the \lasii~system. A lot of efforts has been devoted to ensure good stability and uniformity of the light transmitted to the PMTs of the TileCal. Two aspects have been worked on, the layout of optical elements and the light mixers. The optics box is set in an horizontal position to minimize the dust accretion on optical parts and to ease interventions and maintenance. The goal of light mixers is to expand the LASER beam diameter from about 700 \mum (original size) up to few centimeters (size of the bundle of 400 fibers). As described below, they have been redesigned to optimize homogeneity of the light distribution, minimize beam pointing effects and  guarantee the stability of the light transmitted.
-\par
-Electronics has been redesigned to correct for shortcomings seen with the \lasi~system. The dynamic range of the photodiode preamplifiers has been extended to avoid saturation effects for higher LASER intensities. The boards used to drive the \lasi~system (LASROD, LILAS, SLAMA,...) are now gathered on a single card, \lascar, to improve the communication between the boards.
-\par
-A scheme of the \lasii~system is given on figure \ref{fig:laserscheme} and is comprised of the following parts:
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=9cm,height=11cm]{figures/LaserII_latest_latest.eps}
-\caption{Scheme of the \lasii~system}\label{fig:laserscheme}
-\end{figure}
-\begin{itemize}
-\item Optics box: at the output of the LASER head, the beam is transmitted through a beam expander (x2.5) and divided in two parts: one is sent to a light mixer that dispatches the light to seven optics fibers (3 are connected to photodiodes) while the other is reflected by a miror and trasmitted to a filter wheel. At the output of the filter wheel, the beam is splitted with one part sent to a light mixer (of the same kind as the first one, connected to three photodiodes) and the other part is sent to a beam expander which magnifies and dispatches the input light to a bundle of about 400 fibers. 4 fibers are connected to photodiodes while all others transmit the light to the modules of the TileCal.
-
-\item Photodiode box: this box houses ten photodiodes (and their amplifier) receiving light from the optics box (LASER beam) or from \phocal~(LED signal). This box also contains two electronic boards, \licphd~and \charinjsplit.
-
-
-\item \phocal: an internal calibration system named \phocal~(Photodiode Calibration) has been setup to monitor the stability of the ten photodiodes located in the photodiode box. It is composed of a LED emitting a signal in a light mixer that transmit the light to a set of 11 optics fibers, with 10 connected to the photodiode box, and one coupled to a reference photodiode. 
-The stability of the ten photodiodes is performed through the monitoring of the LED signal received normalized to the magnitude measured by the reference photodiode. The stability of the reference photodiode is estimated thanks to a static radioactive source. 
-
-\item PMT box: two PhotoMultiplier Tubes (PMTs) are used to trigger the acquisition when the LASER is flashing. The PMT box also contains two electronic cards, \licpmt~and \licmot.
-
-\item Optical filters are used to attenuate the LASER signal transmitted to the photodiodes and the PMTs.
-
-\item VME crate: two boards located in the VME crate are used to drive the \lasii~system: a VME Single Board Computer (SBC), and \lascar, that incorporates a charge analog-to-digital converter (qADC), and SLAMA, LASTROD and LILAS cards.
-
-\item POwer LASer (\polas): power supplies of the \lasii~system. \polas~provides low voltages (+5V, -5V, $\pm$15V,+12 V, +24 V) to electronic boards.
-
-\item Local DCS: a PC is used to collect slow-control information (such as temperatures, position of the filter wheel,...) from \licmot,\licpmt,\licphd~and \lascar~through ethernet connections.
-
-
-\end{itemize}
+\input laserII_overview.tex
 
 \subsection{Electronics}
 
