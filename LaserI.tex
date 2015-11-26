@@ -88,21 +88,20 @@ The \las~system installed in USA15 is performing extremely well. Nonetheless few
 \begin{itemize}
 \item{\coimbra~box instabilities} 
 	
-	The amount of light sent to each of the 400 fibers coming out of the \coimbra~system must be very stable in time, since it is this signal that is used to estimate the stability of the \pmts~of the \tilecal. But a decrease of the light in the fibers of about 4\% over a period of 1.5 month has been observed. This effect is at the moment handled via software corrections but understanding and solving this problem would allow a gain of sensitivity of the system.
+The amount of light sent to each of the 400 fibers coming out of the \coimbra~system must be very stable in time, since it is this signal that is used to estimate the stability of the \pmts~of the \tilecal. But a decrease of the light in the fibers of about 4\% over a period of 1.5 month has been observed. This effect is at the moment handled via software corrections but understanding and solving this problem would allow a gain of sensitivity of the system.
 	
 \item{Photodiode box grounding problem} 
 	
-	During an $\alpha$-source run, it has been shown that, when the source is in front of a given photodiode, the pedestals measured by the other photodiodes are not the same as the ones measured during a pedestal run, when the source is located in its garage position. This problem is related to cross-talk of the ground. It has been solved by re-designing the bus card along which transit the low voltages for the electronics of the photodiodes and the signals coming from the preamplifiers. This new card has been installed in USA15 in 2011. \par
-	Another effect has been observed: when photodiodes are illuminated all at a time by a \las~signal with a given intensity, the signal seen by the electronics for a given photodiode differs significantly from the one measured when only this photodiode receives a \las~light of the same intensity. This optical cross-talk had already been observed in 2009, and was attenuated in the following way: when a given photodiode is illuminated with a \las~light corresponding to a given intensity, all other photodiodes are operated in reverse polarization.
+During an $\alpha$-source run, it has been shown that, when the source is in front of a given photodiode, the pedestals measured by the other photodiodes are not the same as the ones measured during a pedestal run, when the source is located in its garage position. This problem is related to cross-talk of the ground. It has been solved by re-designing the bus card along which transit the low voltages for the electronics of the photodiodes and the signals coming from the preamplifiers. This new card has been installed in USA15 in 2011. \par
+Another effect has been observed: when photodiodes are illuminated all at a time by a \las~signal with a given intensity, the signal seen by the electronics for a given photodiode differs significantly from the one measured when only this photodiode receives a \las~light of the same intensity. This optical cross-talk had already been observed in 2009, and was attenuated in the following way: when a given photodiode is illuminated with a \las~light corresponding to a given intensity, all other photodiodes are operated in reverse polarization.
 		
 \item{Filters non-uniformity}
 	
-	The filters that are used to increase the \las~dynamic range are inserted into a moving wheel. The reproducibility of the position of the wheel has been estimated by performing consecutive \las~runs at a given intensity after a rotation of the wheel. An effect at the level of few \% has been observed. This could be measured and corrected with photodiodes inserted between the rotating wheel and the \coimbra~box.
+The filters used to increase the \las~dynamic range were inserted into a moving wheel. The reproducibility of the position of the wheel has been estimated by performing consecutive \las~runs at a given intensity after a rotation of the wheel. An effect at the level of few \% has been observed. This could be measured and corrected with photodiodes inserted between the rotating wheel and the \coimbra~box.
 	
-\item{LHC clock}
+\item{Electronics}
 
-
-\item{FPGA memories}
+Some problems that may be related to \lasi~electronics have been observed. From time to time LASTROD was found desynchronized with the LHC clock. Even if the origin of the problem has never been clearly identified, it seems clear that the number of electronic board does not tend to ease the synchronization and signal transmissions. The \lasi~electronics was containing 11 Field Programmable Arrays (FPGA) (with the following distribution : LASTROD : 4, SLAMA : 3, LILAS : 1, QDC : 1, Motor : 1, Safety : 1) and this did not ease the management of the many signals spread over the system. Furthemore FPGAs were not as efficient (in terms of frequency or memory) when the \lasi~system was built as they are nowadays. In particular the memory of SLAMA's FPGA was filled at the level of more than 80\% making difficult to manage an increase of information that may be due to hardware upgrades.  
 
 
 

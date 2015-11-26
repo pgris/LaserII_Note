@@ -1,4 +1,4 @@
-The PMT box (Fig. \ref{fig:laspmtbox}) comprehends two PMTs used to trigger the \laserii~acquisition in the LASER mode. It houses two electronic boards :
+The PMT box (Fig. \ref{fig:laspmtbox}) comprehends two PMTs \cite{ref:pmt} used to trigger the \laserii~acquisition in the \laser~mode. It houses two electronic boards :
 
 
 \begin{figure}[htbp]
@@ -8,12 +8,9 @@ The PMT box (Fig. \ref{fig:laspmtbox}) comprehends two PMTs used to trigger the 
 \caption{Schematic of the PMT box.}\label{fig:laspmtbox}
 \end{figure}
 
-
-
-
 \begin{itemize}
 
-\item \licpmt (Fig. \ref{fig:laslicpmt}) : this module is used to set the high voltage to the two PMTs located in the box. It provides measurements of temperature and humidity inside of the optics box and is used to manage the interlock chain that prevents users from flashing the \laser~when the optics box is open. LicPMT is also implied in the configuration and the control of the laser pump (slow control part) and is used to switch the \laser~pump (power supply relay) on. 
+\item \licpmt (Fig. \ref{fig:laslicpmt}) : this module is used to set the high voltage to the two PMTs located in the box. It provides measurements of temperature and humidity inside of the optics box and is used to manage the interlock chain that prevents users from flashing the \laser~when the optics box is open. \licpmt~is also implied in the configuration and the control of the laser pump (slow control part) and is used to switch the \laser~pump (power supply relay) on. 
 
 \begin{figure}[htbp]
 \centering
@@ -32,3 +29,6 @@ The PMT box (Fig. \ref{fig:laspmtbox}) comprehends two PMTs used to trigger the 
 \end{figure}
 
 \end{itemize}
+
+Two optical fibers are plugged at the rear of the box to transmit the \laser~signal from the optics box to the PMTs. For the same reasons as for the photodiode box (air flow in the USA15 racks for electronics cooling), deflectors have been installed to ensure that the optical fibers are maintained in a stable position.
+
