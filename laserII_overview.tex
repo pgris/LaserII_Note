@@ -1,11 +1,12 @@
 The main concern of the \lasii~project was to design a calibration system without \lasi~shortcomings while maintaining a high performance level in terms of precision and stability. The major improvements are summarized in table \ref{tab:lasii_imp}.
 \begin{table*}[!htpb]
  \begin{center}
- \begin{tabular}{|l|l|}
-\hline
+\caption{Critical points of the \lasi~system and improvements in the \lasii}\label{tab:lasii_imp}
+ \begin{tabular}{ll}
+\hline\hline
 Critical Point & \lasii \\
 \hline
-Measurement of the LASER light & Number of photodiodes increased to 10+1 \\
+Measurement of the \laser~light & Number of photodiodes increased to 10+1 \\
 at each point of the optical path & \\
 \hline
 Adapt the calibration system of the photodiodes & Redundant calibration scheme: \\
@@ -15,7 +16,7 @@ Adapt the calibration system of the photodiodes & Redundant calibration scheme: 
 Insufficient light mixing of each optical set & New design of the beam expander \\
 & (light to the ~400 fibers of the TileCal)  \\
 & and of other mixers \\
-& (LASER head and filter wheel outputs) \\
+& (\laser~head and filter wheel outputs) \\
 \hline
 Optics box in a vertical position & Optics box in an horizontal position\\
 \hline
@@ -25,33 +26,33 @@ Electronics shortcomings  & new card including all functionnalities \\
 (LASTROD memory, LHC clock) & \\
 \hline
 \end{tabular}
-\caption{Critical points of the \lasi~system and improvements in the \lasii}\label{tab:lasii_imp}
+%\caption{Critical points of the \lasi~system and improvements in the \lasii}\label{tab:lasii_imp}
 \end{center}
 \end{table*}
 \par
-A better estimation of the LASER light injected in the system is possible with an increase of the number of photodiodes. In that case, the calibration scheme of the photodiodes used for the \lasi~(a moving radioactive source) is difficult to use in practise. We thus moved to a system comprised of a Light Emitting Diode (LED) and of a static radioactive source. The LED signal is injected in the ten photodiodes dedicated to the measurement of the LASER light and in a reference photodiode monitored with a static radioactive source. 
+A better estimation of the \laser~light injected in the system is possible with an increase of the number of photodiodes. In that case, the calibration scheme of the photodiodes used for the \lasi~(a moving radioactive source) is difficult to use in practise. We thus moved to a system comprised of a Light Emitting Diode (LED) and a static radioactive source. The LED signal is injected in the ten photodiodes dedicated to the measurement of the \laser~light and in a reference photodiode monitored with a static radioactive source. 
 \par
-The optical path is a critical point of the \lasii~system. A lot of efforts has been devoted to ensure good stability and uniformity of the light transmitted to the PMTs of the TileCal. Two aspects have been worked on, the layout of optical elements and the light mixers. The optics box is set in an horizontal position to minimize the dust accretion on optical parts and to ease interventions and maintenance. The goal of light mixers is to expand the LASER beam diameter from about 700 \mum (original size) up to few centimeters (size of the bundle of 400 fibers). As described below, they have been redesigned to optimize homogeneity of the light distribution, minimize beam pointing effects and  guarantee the stability of the light transmitted.
+The optical path is a critical point of the \lasii~system. A lot of efforts has been devoted to ensure good stability and uniformity of the light transmitted to the PMTs of the TileCal. Two aspects have been worked on, the layout of optical elements and the light mixers. The optics box is set in an horizontal position to minimize the dust accretion on optical parts and to ease interventions and maintenance. The goal of light mixers is to expand the \laser~beam diameter from about 700 \mum (original size) up to few centimeters (size of the bundle of 400 fibers). As described below, they have been redesigned to optimize homogeneity of the light distribution, minimize beam pointing effects and  guarantee the stability of the light transmitted.
 \par
-Electronics has been redesigned to correct for shortcomings seen with the \lasi~system. The dynamic range of the photodiode preamplifiers has been extended to avoid saturation effects for higher LASER intensities. The boards used to drive the \lasi~system (LASROD, LILAS, SLAMA,...) are now gathered on a single card, \lascar, to improve the communication between the boards.
+Electronics has been redesigned to correct for shortcomings seen with the \lasi~system. The dynamic range of the photodiode preamplifiers has been extended to avoid saturation effects for higher \laser~intensities. The boards used to drive the \lasi~system (LASROD, LILAS, SLAMA,...) are now gathered on a single card, \lascar, to improve the communication between the boards (LASCAR has only one FPGA).
 \par
 A scheme of the \lasii~system is given on figure \ref{fig:laserscheme} and is comprised of the following parts:
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=9cm,height=11cm]{figures/LaserII_latest_latest.eps}
+\includegraphics[width=11cm,height=11cm]{figures/LaserII_latest_latest.eps}
 \caption{Scheme of the \lasii~system}\label{fig:laserscheme}
 \end{figure}
 \begin{itemize}
-\item Optics box: at the output of the LASER head, the beam is transmitted through a beam expander (x2.5) and divided in two parts: one is sent to a light mixer that dispatches the light to seven optics fibers (3 are connected to photodiodes) while the other is reflected by a miror and trasmitted to a filter wheel \footnote{Two types of filter wheel may be used (one at a time): a home-made one, and a commercial one.}. At the output of the filter wheel, the beam is splitted with one part sent to a light mixer (of the same kind as the first one, connected to three photodiodes) and the other part is sent to a beam expander which magnifies and dispatches the input light to a bundle of about 400 fibers. 4 fibers are connected to photodiodes while all others transmit the light to the modules of the TileCal.
+\item Optics box: at the output of the \laser~head, the beam is transmitted through a beam expander (x2.5) and divided in two parts: one is sent to a light mixer that dispatches the light to seven optics fibers (3 are connected to photodiodes) while the other is reflected by a miror and transmitted to a filter wheel \footnote{Two types of filter wheel may be used (one at a time): a home-made one, and a commercial one.}. At the output of the filter wheel, the beam is splitted with one part sent to a light mixer (of the same kind as the first one, connected to three photodiodes) and the other part is sent to a beam expander which magnifies and dispatches the input light to a bundle of about 400 fibers. 4 fibers are connected to photodiodes while all others transmit the light to the modules of the TileCal.
 
 \item Photodiode box: this box houses ten modules dubbed cassettes. Each cassette contains a photodiode (and its amplifier) that receives light from the optics box (\laser~beam) or from \phocal~(LED signal). This box also contains two electronic boards, \licphd, an electronic board used to drive the photodiode box,~and \charinjsplit, a module dispatching a charge that aims at monitoring the stability of the electronics,
 
 \item \phocal: an internal calibration system named \phocal~(Photodiode Calibration) has been setup to monitor the stability of the ten photodiodes located in the photodiode box. It is composed of a LED emitting a signal in a light mixer that transmit the light to a set of 11 optics fibers, with 10 connected to the photodiode box, and one coupled to a reference photodiode. 
 The stability of the ten photodiodes is performed through the monitoring of the LED signal received normalized to the magnitude measured by the reference photodiode. The stability of the reference photodiode is estimated thanks to a static radioactive source,
 
-\item PMT box: two PhotoMultiplier Tubes (PMTs) are used to trigger the acquisition when the LASER is flashing. The PMT box also contains two electronic cards to drive the PMT box(\licpmt)~and the filter wheel(\licmot),
+\item PMT box: two PhotoMultiplier Tubes (PMTs) are used to trigger the acquisition when the \laser~is flashing. The PMT box also contains two electronic cards to drive the PMT box(\licpmt)~and the filter wheel(\licmot),
 
-\item Optical filters are used to attenuate the LASER signal transmitted to the photodiodes and the PMTs,
+\item Optical filters are used to attenuate the \laser~signal transmitted to the photodiodes and the PMTs,
 
 \item VME crate: two boards located in the VME crate are used to drive the \lasii~system: a VME Single Board Computer (SBC), and \lascar, that incorporates a charge analog-to-digital converter (qADC), and LILAS, TTCRx and HOLA cards,
 

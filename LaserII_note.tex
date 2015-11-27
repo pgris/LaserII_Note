@@ -62,7 +62,7 @@
 % Add you own definitions here (file LaserII_note-defs.sty).
 %\usepackage{LaserII_note-defs}
 \newcommand{\laser}{laser}
-\newcommand{\las}{{\sc laser}}
+\newcommand{\las}{laser}
 \newcommand{\lasa}{{\sc LASER~I}}
 \newcommand{\lasi}{{\sc LaserI}}
 \newcommand{\lasii}{{\sc LaserII}}
@@ -71,7 +71,7 @@
 \newcommand{\atlas}{{\sc ATLAS}}
 \newcommand{\pmts}{{\sc PMTs}}
 \newcommand{\pmt}{{\sc PMT}}
-\newcommand{\tilecal}{{\sc TileCal}}
+\newcommand{\tilecal}{TileCal}
 \newcommand{\vme}{{\sc VME}}
 \newcommand{\phocal}{{\sc PHOCAL}}
 \newcommand{\licphd}{{\sc LICPHD}}
@@ -101,6 +101,16 @@
 %-------------------------------------------------------------------------------
 \begin{document}
 
+\renewcommand\appendix{\par
+  \setcounter{section}{0}
+  \setcounter{subsection}{0}
+  \setcounter{figure}{0}
+  \setcounter{table}{0}
+  \renewcommand\thesection{Appendix} %\Alph{section}}
+  \renewcommand\thefigure{\Alph{section}\arabic{figure}}
+  \renewcommand\thetable{\Alph{section}\arabic{table}}
+}
+
 \maketitle
 
 \tableofcontents
@@ -119,7 +129,7 @@ The global detector calibration is performed monthly by measuring the individual
 Calibration of the PMTs and of the readout chain are performed between two sucessive Cesium scans; laser pulses are distributed to each individual PMT cathode (approximatively 10,000 channels) by a suitable optical distribution line having a power laser (several $\mu$J per pulse) as a source. Laser calibrations can be performed every two-three days during pauses of LHC collisions and during collision runs by pulsing the laser in the empty bunch intervals.  \par
 During the Long Shutdown I of LHC operations, the Tilecal \laser~calibration system has been re-designed, tested, and installed for the Run II operations. The shortcomings of the optical part have been studied, understood and solved. The \laser~light injected in the PMTs is measured by sets of photodiodes at several stages of the optical path. The monitoring of the photodiodes is performed by a redundant internal calibration scheme using an LED, a radioactive source, and a charge injection system. \par
 A challenge of the new \laser~project was lying in the design of electronics boards that would overcome the shortcomings of the previous \laser~system (interface with the LHC clock and saturation of the electronics for higher \laser~intensities) and that would be compatible with the new requirements (increase of the number of photodiodes, new internal calibration scheme). A new electronics has been designed to achieve these goals.\par
-This document proposes a detailed description of the \laser~calibration system of the TileCal and is organized as follows. In a first part the \laseri~system, operated up to october 2014, is depicted, its performance quoted and its shortcomings listed. The new \laser~structure, dubbed as \lasii, is described in a second part. Its main components (electronics, optics, data acquisition and control system) are specified. It should be noticed that this note aims at summarizing the hardware side of the \lasii~system. A separated document related to the performance will follow. 
+This document proposes a detailed description of the \laser~calibration system of the TileCal and is organized as follows. In a first part the \lasi~system, in operation up to october 2014, is depicted, its performance quoted and its shortcomings listed. The new \laser~structure, dubbed \lasii, is described in a second part. Its main components (electronics, optics, data acquisition and control system) are specified. It should be noticed that this note aims at summarizing the hardware side of the \lasii~system. A separated document related to the performance will follow. 
 
 
 %-------------------------------------------------------------------------------
@@ -191,9 +201,6 @@ This document proposes a detailed description of the \laser~calibration system o
 \input dcs.tex
 
 
-- description of the DCS: structure+data available+database access
-
-
 
 
 %-------------------------------------------------------------------------------
@@ -201,7 +208,10 @@ This document proposes a detailed description of the \laser~calibration system o
 \label{sec:conclusion}
 %-------------------------------------------------------------------------------
 
-Place your conclusion here.
+After three years of design and development the new \laser~calibration system was installed in USA15 in october 2014. We have tried to learn from the lessons of the former setup and our efforts concerned three critical points : optics, monitoring and electronics. A new arrangment of the optics box has been setup to ensure stability, to minimize beam pointing effects and to attenuate dependency to vibration. Moving to an horizontal position of the box was not an easy task because of the small place available. But it was important to make it so as to ease maintenance and especially to minimize dust deposits on optical components that may affect the performance. 
+One of the lesson learnt from \lasi~was related to the need of measuring the \laser~signal at the output of each optical component. The number of photodiodes was thus increased to ten and a new internal calibration system had then to be setup. A challenging aspect of the project concerned the electronics. To solve the shortcomings observed with \lasi~and to benefit from recent hardware developmenets, it has been decided to move to a more compact setup so as to improve the timing and the transmission of the many signals that are send and received through the system.
+
+The \lasii~setup has been used on a regular basis since october 2014. The performance of the system are compatible with expectations and will be the subject of another document that will be published shortly.
 
 \begin{comment}
 %-------------------------------------------------------------------------------
@@ -225,10 +235,10 @@ The list should be printed either here or before the table of contents.
 %-------------------------------------------------------------------------------
 \clearpage
 \appendix
-%\part*{Appendix A}
-\addcontentsline{toc}{part}{Appendix}
 
+%\part*{Appendix A}
 \input appendix.tex
+%\addcontentsline{toc}{part}{Appendix}
 %-------------------------------------------------------------------------------
 \begin{comment}
 In a paper, an appendix is used for technical details that would otherwise disturb the flow of the paper.
