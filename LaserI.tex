@@ -20,17 +20,23 @@ The \lasi~system \cite{ref:lasercalvet} was composed of three main parts: optica
 	\item the \las~box (Fig. \ref{fig:lasabox}): the light emitted by the diode pumped solid state \las~from SpectraPhysics (green beam with $\lambda$ = 532 nm) was splitted by a semi-reflecting mirror. A small amount of the light (about 9\%) was sent to a light-mixing block, composed of reflective filters, light diffusers and a light mixer, and transmitted to a bundle of 9 fibers. \par
 		\begin{figure}[htbp]
 			\centering
-			\includegraphics[height=7cm]{figures/LaserBox.png}
+			\includegraphics[height=7cm]{figures/LaserIBox.pdf}
 			\caption{Picture of the \las~box of the \lasi~system}\label{fig:lasabox}
 		\end{figure}	
 			
 		Two of these fibers were connected to two \pmts, used for timing purposes (trigger), and one was linked to a photodiode to ensure an absolute measurement of the light. The other part of the \las~light was sent to one of the attenuating filter located on a wheel and then to a liquid fiber that transmitted the output light to the \coimbra~system. \par
                  The \las~box was equipped with a custom-built electromechanical shutter for safety purpose. This semi-passive component aimed at isolating the \las~box from the \tilecal: the \las~light was transmitted only to the optical components of the box and not to the \pmt~of the \tilecal. 
 
-	\item the \coimbra~box : this system was transmitting the light coming from a liquid fiber to a bundle of long clear fibers that were connected to the \pmts~of the \tilecal. It was composed of a divergent lens, an unpolished acrylic disk (used as a diffuser), and a convergent lens.
-	\item clear fibers of about 100 to 120 m long transfer the light coming out of the \coimbra~box to the 9852 \pmts~of the \tilecal. There were 400 fibers (1 fiber for two half-modules for the central calorimeter, 1 fiber for each half-module of the extended barrels, and 16 spare fibers). 
+	\item the \coimbra~box : this system was transmitting the light coming from a liquid fiber to a bundle of long clear fibers that were connected to the \pmts~of the \tilecal. Its main element  was a beam expander (Fig. \ref{fig:coimbrabox}) composed of a divergent lens, an unpolished acrylic disk (used as a diffuser), and a convergent lens.
+	\item 400 clear fibers of about 100 to 120 m long transfer the light coming out of the \coimbra~box to the \tilecal~modules (1 fiber for two half-modules for the central calorimeter, 1 fiber for each half-module of the extended barrels, and 16 spare fibers). Inside each module an optical system composed of a light mixer in air dispatches the light to each PMT. 
 	\end{itemize}
 		
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=7cm]{figures/Coimbrabox.png}
+\caption{Scheme of the beam expander located inside the \coimbra~box}\label{fig:coimbrabox}
+\end{figure}	
+
 \item calibration part 
 	
 	The photodiode box, located inside the \las~box, housed four photodiodes and their electronics calibrated with an Americium $\alpha$-source (3.7 kBq). The box temperature was regulated with Peltier modules and the humidity was controlled via an air dry flow. The inter-calibration of the photodiodes was performed regularly via specific runs with the embedded source moving along the photodiodes. 
@@ -62,7 +68,7 @@ A monitoring of the various components of the \lasi~system was performed regular
 \begin{itemize}
 \item{pedestal runs} 
 	
-	Pedestal may be estimated with dedicated runs or during the calibration runs (with the $\alpha$-source). Significant variations may show potential electronics problems. A stability better than 0.5\% has been observed on the mean pedestal values \cite{ref:laserb}.
+	Pedestal may be estimated with dedicated runs or during the calibration runs (with the $\alpha$-source : when the source is located in front of a given photodiode, pedestals are measured by others). Significant variations may show potential electronics problems. A stability better than 0.5\% has been observed on the mean pedestal values \cite{ref:laserb}.
 \item{photodiode stability monitoring}
 	
 	The monitoring was performed during the calibration runs with the $\alpha$ source. The mean of the photodiodes signal has been chosen to monitor the stability, which was about 0.15\% over few months.
@@ -93,7 +99,7 @@ The amount of light sent to each of the 400 fibers coming out of the \coimbra~sy
 \item{Photodiode box grounding problem} 
 	
 During an $\alpha$-source run, it has been shown that, when the source is in front of a given photodiode, the pedestals measured by the other photodiodes are not the same as the ones measured during a pedestal run, when the source is located in its garage position. This problem was related to cross-talk of the ground. It has been solved by re-designing the bus card along which transit the low voltages for the electronics of the photodiodes and the signals coming from the preamplifiers. This new card has been installed in USA15 in 2011. \par
-Another effect has been observed: when photodiodes are illuminated all at a time by a \las~signal with a given intensity, the signal seen by the electronics for a given photodiode differs significantly from the one measured when only this photodiode receives a \las~light of the same intensity. This optical cross-talk had already been observed in 2009, and was attenuated in the following way: when a given photodiode is illuminated with a \las~light corresponding to a given intensity, all other photodiodes are operated in reverse polarization.
+Another effect has been observed: when photodiodes are illuminated all at a time by a \las~signal with a given intensity, the signal seen by the electronics for a given photodiode differs significantly from the one measured when only this photodiode receives a \las~light of the same intensity. This optical cross-talk had already been observed in 2009, and was attenuated in the following way : a photodiode that saturated had its polarization inversed and was not used to measure the  \las~light. 
 		
 \item{Filters non-uniformity}
 	
