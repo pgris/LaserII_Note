@@ -34,31 +34,32 @@ A better estimation of the \laser~light injected in the system is possible with 
 \par
 The optical path is a critical point of the \lasii~system. A lot of efforts has been devoted to ensure good stability and uniformity of the light transmitted to the PMTs of the TileCal. Two aspects have been worked on, the layout of optical elements and the light mixers. The optics box is set in an horizontal position to minimize the dust accretion on optical parts and to ease interventions and maintenance. The goal of light mixers is to expand the \laser~beam diameter from about 700 \mum (original size) up to few centimeters (size of the bundle of 400 fibers). As described below, they have been redesigned to optimize homogeneity of the light distribution, minimize beam pointing effects and  guarantee the stability of the light transmitted.
 \par
-Electronics has been redesigned to correct for shortcomings seen with the \lasi~system. The dynamic range of the photodiode preamplifiers has been extended to avoid saturation effects for higher \laser~intensities. The boards used to drive the \lasi~system (LASROD, LILAS, SLAMA,...) are now gathered on a single card, \lascar, to improve the communication between the boards (LASCAR has only one FPGA).
+Electronics has been redesigned to correct for shortcomings seen with the \lasi~system. The dynamic range of the photodiode preamplifiers has been extended to avoid saturation effects for higher \laser~intensities. The boards used to drive the \lasi~system (LASTROD, LILAS, SLAMA,...) are now gathered on a single card, LASer Control Acquisition Readout (\lascar), to improve the communication between the boards (LASCAR has only one FPGA).
 \par
 A scheme of the \lasii~system is given on figure \ref{fig:laserscheme} and is comprised of the following parts:
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=11cm,height=11cm]{figures/LaserII_latest_latest.eps}
+%\includegraphics[width=11cm,height=11cm]{figures/LaserII_latest_latest.eps}
+\includegraphics[width=15cm]{figures/Laser_II_layout.pdf}
 \caption{Scheme of the \lasii~system}\label{fig:laserscheme}
 \end{figure}
 \begin{itemize}
-\item Optics box: at the output of the \laser~head, the beam is transmitted through a beam expander (x2.5) and divided in two parts: one is sent to a light mixer that dispatches the light to seven optics fibers (3 are connected to photodiodes) while the other is reflected by a miror and transmitted to a filter wheel \footnote{Two types of filter wheel may be used (one at a time): a home-made one, and a commercial one.}. At the output of the filter wheel, the beam is splitted with one part sent to a light mixer (of the same kind as the first one, connected to three photodiodes) and the other part is sent to a beam expander which magnifies and dispatches the input light to a bundle of about 400 fibers. 4 fibers are connected to photodiodes while all others transmit the light to the modules of the TileCal.
+\item Optics box: at the output of the \laser~head, the beam is transmitted through a beam expander (x2.5) and divided in two parts: one is sent to a light mixer that dispatches the light to seven optics fibers (3 are connected to photodiodes) while the other is reflected by a miror and transmitted to a filter wheel. At the output of the filter wheel, the beam is splitted with one part sent to a light mixer (of the same kind as the first one, connected to three photodiodes) and the other part is sent to a beam expander which magnifies and dispatches the input light to a bundle of about 400 fibers. 4 fibers are connected to photodiodes while all others transmit the light to the modules of the TileCal.
 
-\item Photodiode box: this box houses ten modules dubbed cassettes. Each cassette contains a photodiode (and its amplifier) that receives light from the optics box (\laser~beam) or from \phocal~(LED signal). This box also contains two electronic boards, \licphd, an electronic board used to drive the photodiode box,~and \charinjsplit, a module dispatching a charge that aims at monitoring the stability of the electronics,
+\item Photodiode box: this box houses ten modules dubbed cassettes. Each cassette contains a photodiode (and its amplifier) that receives light from the optics box (\laser~beam) or from the PHOtodiode CALibration (\phocal) part(LED signal). This box also contains two electronic boards, Licorne \footnote{LICORNE is the Laser Independent COntrol Remote Network.} Photodiode (\licphd), an electronic board used to drive the photodiode box,~and a chagre injection splitter (\charinjsplit), a module dispatching a charge that aims at monitoring the stability of the electronics,
 
-\item \phocal: an internal calibration system named \phocal~(Photodiode Calibration) has been setup to monitor the stability of the ten photodiodes located in the photodiode box. It is composed of a LED emitting a signal in a light mixer that transmit the light to a set of 11 optics fibers, with 10 connected to the photodiode box, and one coupled to a reference photodiode. 
+\item \phocal: an internal calibration system named has been setup to monitor the stability of the ten photodiodes located in the photodiode box. It is composed of a LED emitting a signal in a light mixer that transmit the light to a set of 11 optics fibers, with 10 connected to the photodiode box, and one coupled to a reference photodiode. 
 The stability of the ten photodiodes is performed through the monitoring of the LED signal received normalized to the magnitude measured by the reference photodiode. The stability of the reference photodiode is estimated thanks to a static radioactive source,
 
 \item PMT box: two PhotoMultiplier Tubes (PMTs) are used to trigger the acquisition when the \laser~is flashing. The PMT box also contains two electronic cards to drive the PMT box(\licpmt)~and the filter wheel(\licmot),
 
 \item Optical filters are used to attenuate the \laser~signal transmitted to the photodiodes and the PMTs,
 
-\item VME crate: two boards located in the VME crate are used to drive the \lasii~system: a VME Single Board Computer (SBC), and \lascar, that incorporates a charge analog-to-digital converter (qADC), and LILAS, TTCRx and HOLA cards,
+\item VME crate: two boards located in the VME crate are used to drive the \lasii~system: a VME Single Board Computer (SBC), and \lascar, that incorporates on one mezzanine a charge analog-to-digital converter (qADC), and LILAS, and HOLA card on another mezzanine. \lascar~also includes the TTCRx chip,
 
 \item POwer LASer (\polas): power supplies of the \lasii~system. \polas~provides low voltages (+5V, -5V, $\pm$15V,+12 V, +24 V) to electronic boards,
 
-\item Local DCS: a PC is used to collect slow-control information (such as temperatures, position of the filter wheel,...) from \licmot,\licpmt,\licphd~and \lascar~through ethernet connections.
+\item Local DCS: a PC is used to collect slow-control information (such as temperatures, position of the filter wheel,...) from Licorne Motor (\licmot),Licorne PMT(\licpmt),\licphd~and \lascar~cards through ethernet connections.
 
 
 \end{itemize}
