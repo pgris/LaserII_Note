@@ -64,10 +64,9 @@
 \newcommand{\laser}{laser}
 \newcommand{\las}{laser}
 \newcommand{\lasa}{{\sc LASER~I}}
-\newcommand{\lasi}{{\sc LaserI}}
-\newcommand{\lasii}{{\sc LaserII}}
-\newcommand{\lasb}{{\sc LASER~175}}
-\newcommand{\lasc}{{\sc LASER~II}}
+\newcommand{\lasi}{LaserI}
+\newcommand{\lasii}{LaserII}
+\newcommand{\lasb}{Laser175}
 \newcommand{\atlas}{{\sc ATLAS}}
 \newcommand{\pmts}{{\sc PMTs}}
 \newcommand{\pmt}{{\sc PMT}}
@@ -94,7 +93,7 @@
 % Title, abstract and document 
 \input{LASERII_note-metadata}
 % Author and title for the PDF file
-\hypersetup{pdftitle={Upgrade of the LASER calibration system of the ATLAS Tile Calorimeter},pdfauthor={The LaserII group}}
+\hypersetup{pdftitle={Upgrade of the Laser calibration system of the ATLAS Tile Calorimeter},pdfauthor={The LaserII group}}
 
 %-------------------------------------------------------------------------------
 % Content
@@ -125,22 +124,22 @@
 %-------------------------------------------------------------------------------
 
 The Atlas Tilecal hadronic calorimeter (TileCal) \cite{ref:tilecal} is equipped with a 3-level calibration system to monitor and  calibrate the response of the active devices (plastic scintillating tiles), the response of the PMTs receiving the light from clusters of tiles (cells), and the response of the Front End and digitization electronics of the individual readout channels. \par
-The global detector calibration is performed monthly by measuring the individual cell response to a reference excitation produced by calibrated Cesium sources which float inside the detector through a suitable pipe network.
+The global detector calibration is performed monthly by measuring the individual cell response to a reference excitation produced by calibrated Cesium sources \cite{ref:cesiumscan} which float inside the detector through a suitable pipe network.
 Calibration of the PMTs and of the readout chain are performed between two sucessive Cesium scans; laser pulses are distributed to each individual PMT photocathode (approximatively 10,000 channels) by a suitable optical distribution line having a power laser (several $\mu$J per pulse) as a source. Laser calibrations can be performed every two-three days during pauses of LHC collisions and during collision runs by pulsing the laser in the empty bunch intervals.  \par
 During the Long Shutdown I of LHC operations, the Tilecal \laser~calibration system has been re-designed, tested, and installed for the Run II operations. The shortcomings of the optical part have been studied, understood and solved. The \laser~light injected in the PMTs is measured by sets of photodiodes at several stages of the optical path. The monitoring of the photodiodes is performed by a redundant internal calibration scheme using an LED, a radioactive source, and a charge injection system. \par
-A challenge of the new \laser~project was lying in the design of electronics boards that would overcome the shortcomings of the previous \laser~system (interface with the LHC clock and saturation of the electronics for higher \laser~intensities) and that would be compatible with the new requirements (increase of the number of photodiodes, new internal calibration scheme). A new electronics has been designed to achieve these goals.\par
-This document proposes a detailed description of the \laser~calibration system of the TileCal and is organized as follows. In a first part the \lasi~system, in operation up to october 2014, is depicted, its performance quoted and its shortcomings listed. The new \laser~structure, dubbed \lasii, is described in a second part. Its main components (electronics, optics, data acquisition and control system) are specified. It should be noticed that this note aims at summarizing the hardware side of the \lasii~system. A separated document related to the performance will follow. 
+A challenge for the new \laser~project was lying in the design of electronics boards that would overcome the shortcomings of the previous \laser~system (interface with the LHC clock and saturation of the electronics for higher \laser~intensities) and that would be compatible with the new requirements (increase of the number of photodiodes, new internal calibration scheme). A new electronics has been designed to achieve these goals.\par
+This document proposes a detailed description of the \laser~calibration system of the TileCal and is organized as follows. In a first part the \lasi~system, in operation up to October 2014, is depicted, its performance quoted and its shortcomings listed. The new \laser~structure, dubbed \lasii, is described in a second part. Its main components (electronics, optics, data acquisition and control system) are specified. It should be noticed that this note aims at summarizing the hardware side of the \lasii~system. A separated document related to the performance will follow. 
 
 
 %-------------------------------------------------------------------------------
-\section{The LASERI system during P1: performance and shortcomings}
+\section{The \lasi~system during P1: performance and shortcomings}
 \label{sec:detector}
 %-------------------------------------------------------------------------------
 
 \input LaserI.tex
 
 %-------------------------------------------------------------------------------
-\section{The LASERII system}
+\section{The \lasii~system}
 \label{sec:result}
 %-------------------------------------------------------------------------------
 
@@ -160,7 +159,7 @@ This document proposes a detailed description of the \laser~calibration system o
 
 \input pmtbox.tex
 
-\subsubsection{Internal calibration system : PHOCAL}
+\subsubsection{Internal calibration system: PHOCAL}
 
 \input phocal.tex
 
@@ -206,10 +205,10 @@ This document proposes a detailed description of the \laser~calibration system o
 \label{sec:conclusion}
 %-------------------------------------------------------------------------------
 
-After three years of design and development the new \laser~calibration system was installed in USA15 in october 2014. We have tried to learn from the lessons of the former setup and our efforts concerned three critical points : optics, monitoring and electronics. A new arrangment of the optics box has been setup to ensure stability, to minimize beam pointing effects and to attenuate dependency to vibration. Moving to an horizontal position of the box was not an easy task because of the small place available. But it was important to make it so as to ease maintenance and especially to minimize dust deposits on optical components that may affect the performance. 
-One of the lesson learnt from \lasi~was related to the need of measuring the \laser~signal at the output of each optical component. The number of photodiodes was thus increased to ten and a new internal calibration system had then to be setup. A challenging aspect of the project concerned the electronics. To solve the shortcomings observed with \lasi~and to benefit from recent hardware developmenets, it has been decided to move to a more compact setup so as to improve the timing and the transmission of the many signals that are send and received through the system.
+After three years of design and development the new \laser~calibration system was installed in USA15 in October 2014. We have tried to learn from the lessons of the former setup and our efforts have focused three critical points: optics, monitoring and electronics. A new arrangment of the optics box has been setup to ensure stability, to minimize beam pointing effects and to attenuate dependency to vibration. We move to a horizontal setup of the laser box in order to ease maintenance to minimize dust deposits on optical components.
+One of the lessons learnt from \lasi~concerned the requirement to measure the \laser~signal at the output of each optical component. The number of photodiodes was thus increased to ten and a new internal calibration system had then to be setup. A challenging aspect of the project concerned the electronics. To solve the shortcomings observed with \lasi~and to benefit from recent hardware developments, it has been decided to move to a more compact setup so as to improve the timing and the transmission of the many signals that are send and received through the system.
 
-The \lasii~setup has been used on a regular basis since october 2014. The performance of the system are compatible with expectations and will be the subject of another document that will be published shortly.
+The \lasii~setup has been used on a regular basis since October 2014. The performance of the system is compatible with expectations and will be the subject of another document that will be published shortly.
 
 \begin{comment}
 %-------------------------------------------------------------------------------
@@ -247,7 +246,7 @@ Such an appendix should be printed before the Bibliography.
 % If you use biblatex and either biber or bibtex to process the bibliography
 % just say \printbibliography here
 \printbibliography
-
+\addcontentsline{toc}{part}{References}
 % If you want to use the traditional BibTeX you need to use the syntax below.
 %\bibliographystyle{bibtex/bst/atlasBibStyleWoTitle}
 %\bibliography{LaserII_note,bibtex/bib/ATLAS}
@@ -259,7 +258,7 @@ Such an appendix should be printed before the Bibliography.
 % The argument gives the fraction of the text width used for the names
 %-------------------------------------------------------------------------------
 \clearpage
-\PrintAtlasContribute{0.30}
+%\PrintAtlasContribute{0.30}
 
 \begin{comment}
 %-------------------------------------------------------------------------------

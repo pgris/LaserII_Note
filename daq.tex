@@ -23,7 +23,7 @@ actions:
 \begin{enumerate}
 \item It checks the state of \lascar{} and reports a fatal error in case it is not found,
 \item It retrieves the run and configuration parameters from the IS, in particular
-from the "TileParams.LasIIConfig" parameters (see table~\ref{tab:IS:lasIIconfig}) in order to configure the \lasii{}
+from the "TileParams.LasIIConfig" parameters (see Table~\ref{tab:IS:lasIIconfig}) in order to configure the \lasii{}
 system according to them,
 \item It sets up the \lascar{} module according to the run type, as explained
 in the following paragraphs.
@@ -33,7 +33,7 @@ in the following paragraphs.
   \begin{center}
     \caption{Parameters of the "TileParams.LasIIConfig" object in IS.}\label{tab:IS:lasIIconfig}
     \begin{tabular}{lll}
-      \hline\hline
+      \hline
       Parameter & Content & Type \\
       \hline
       Filter & Filter wheel position (from 1 to 8) & u32 \\
@@ -58,7 +58,7 @@ are digitized randomly. Once enough events have been recorded in this mode,
 LED mode and finally the linearity mode increasing the injected charge from 0 to 60000 DAC counts by steps
 of 10000. After the last linearity point, the run is either stopped (in the case of the
 LaserCalib run type) or \lascar{} is switched back to the alpha mode until the run is stopped
-manually (in the case of the LaserAlpha run type). The short data fragment ( Fig. \ref{fig:shortfrag} in \ref{app}) is transmitted in this mode.
+manually (in the case of the LaserAlpha run type). The short data fragment (Figure \ref{fig:shortfrag} in \ref{app}) is transmitted in this mode.
 
 
 \item{Laser}~\\
@@ -67,7 +67,7 @@ calorimeter under the control of the SHAre Few Trigger (\shaft) module. Amplitud
 photodiodes and the photomultipliers of the \lasii{} system are sent to the \atlas{} DAQ by 
 \lascar{}. At the start of run, the \lasmodule{} library configures \lascar{} to move the filter
 wheel to the requested position, as well as the shutter, and to start the \las{} pump with the 
-required intensity. Then it starts \lascar{} in the Laser mode. The long data fragment ( Figs \ref{fig:longfraga}-\ref{fig:longfragb} in \ref{app}) is transmitted in this mode.
+required intensity. Then it starts \lascar{} in the Laser mode. The long data fragment (see Figures \ref{fig:longfraga}-\ref{fig:longfragb} in \ref{app}) is transmitted in this mode.
 
 \item{Physics}~\\
 During physics runs, the \lasii{} system sends \las{} pulses to \tilecal{}, exactly like in
@@ -78,8 +78,8 @@ linearity) except that an internal trigger is used instead of the external signa
 \shaft{}, and that the amplitudes are not sent to the \atlas{} DAQ but rather stored in the 
 \lascar{} memory. As soon as this internal calibration is completed, the \lasmodule{} library
 sets \lascar{} in Laser mode and fills histograms with the amplitudes recorded during this
-calibration. In order not to lose time, the filter wheel, the shutter and the \las{} pump
-are set to the required states prior to the start of the internal calibration. The long data fragment ( Figs. \ref{fig:longfraga}-\ref{fig:longfragb} in \ref{app}) is transmitted in this mode.
+calibration. In order to save time, the filter wheel, the shutter and the \las{} pump
+are set to the required states prior to the start of the internal calibration. The long data fragment (see Figures\ref{fig:longfraga}-\ref{fig:longfragb} in \ref{app}) is transmitted in this mode.
 
 \item{Other types of runs}~\\
 For all other types of runs, \lascar{} is started in idle mode, but reacting to the
@@ -111,7 +111,7 @@ than the given limit (in principle 5~s), a stopless removal request is sent to t
 ~~\\
 During a run, if the \atlas{} DAQ decides to disable the \lasmodule{}, the shutter is closed,
 the \las{} pump is switched off and \lascar{} is stopped. The busy channel of the corresponding
-LTP is also disabled. An SMS is sent to the DAQ expert mobile phone.
+Local Trigger Processor (LTP) is also disabled. An SMS is sent to the DAQ expert mobile phone.
 
 \paragraph{End of run}
 At the end of any run, the shutter is closed, the \las{} pump is switched off and \lascar{} is
@@ -120,7 +120,7 @@ stopped.
 \subsubsection{Information published}
 The \lasmodule{} library publishes periodically several parameters of the \lasii{} system,
 for monitoring purposes. These parameters are published to the IS in the "TileParams.LasIIStatus" 
-object, described in table~\ref{tab:IS:lasIIstatus} (\ref{app}).
+object, described in Table~\ref{tab:IS:lasIIstatus} (\ref{app}).
 
 
 
