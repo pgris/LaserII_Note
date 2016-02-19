@@ -54,12 +54,12 @@ is sent back to a light mixer that dispatches the light to seven optics fibers (
 
 %at the output of the \laser~head, the beam is transmitted through a beam expander (x2.5) and divided in two parts: one is sent to a light mixer that dispatches the light to seven optics fibers (3 are connected to photodiodes) while the other is reflected by a miror and transmitted to a filter wheel. At the output of the filter wheel, the beam is splitted with one part sent to a light mixer (of the same kind as the first one, connected to three photodiodes) and the other part is sent to a beam expander which magnifies and dispatches the input light to a bundle of about 400 fibers. 4 fibers are connected to photodiodes while all others transmit the light to the modules of the TileCal.
 
-\item Photodiode box: this box houses ten modules dubbed cassettes. Each cassette contains a photodiode (and its amplifier) that receives light from the optics box (\laser~beam) or from the PHOtodiode CALibration (\phocal) module (LED signal). This box also contains two electronic boards, Licorne \footnote{LICORNE is the Laser Independent COntrol Remote Network.} Photodiode (\licphd), an electronic board used to drive the photodiode box,~and a charge injection splitter (\charinjsplit), a module dispatching a charge that aims at monitoring the stability of the electronics,
+\item Photodiode box: this box houses ten modules dubbed cassettes. Each cassette contains a photodiode (and its amplifier) that receives light from the optics box (\laser~beam) or from the PHOtodiode CALibration (\phocal) module (LED signal). This box also contains two electronic boards, LICORNE\footnote{LICORNE is the Laser Independent COntrol Remote Network.} Photodiode (\licphd), an electronic board used to drive the photodiode box,~and a charge injection splitter (\charinjsplit), a module dispatching a charge that aims at monitoring the stability of the electronics,
 
 \item \phocal~is an internal calibration system setup to monitor the stability of the ten photodiodes located in the photodiode box. It is composed of a LED emitting a signal in a light mixer that transmit the light to a set of eleven optics fibers, with ten connected to the photodiode box, and one coupled to a reference photodiode. 
 The stability of the ten photodiodes is performed by monitoring the ratio of the LED signal seen by these photodiodes to the magnitude measured by the reference photodiode. The stability of the reference photodiode is estimated with a static radioactive source,
 
-\item PMT box: two PhotoMultiplier Tubes (PMTs) are used to trigger the \lasii~acquisition when the \laser~is flashing. The PMT box also contains two electronic cards to drive the PMT box(\licpmt)~and the filter wheel(\licmot),
+\item PMT box: two PhotoMultiplier Tubes (PMTs) are used to trigger the \lasii~acquisition when the \laser~is flashing. The PMT box also contains two electronic cards to drive the PMT box (\licpmt)~and the filter wheel (\licmot),
 
 \item Optical filters are used to attenuate the \laser~signal transmitted to the photodiodes and the PMTs,
 
@@ -67,7 +67,7 @@ The stability of the ten photodiodes is performed by monitoring the ratio of the
 
 \item POwer LASer (\polas): power supplies of the \lasii~system. \polas~provides low voltages (+5V, -5V, $\pm$15V,+12 V, +24 V) to electronic boards,
 
-\item Local DCS: a PC is used to collect slow-control information (such as temperatures, position of the filter wheel,...) from Licorne Motor (\licmot), Licorne PMT(\licpmt), \licphd~and \lascar~cards through ethernet connections.
+\item Local DCS: a PC is used to collect slow-control information (such as temperatures, position of the filter wheel,...) from LICORNE Motor (\licmot), Licorne PMT(\licpmt), \licphd~and \lascar~cards through ethernet connections.
 
 
 \end{itemize}

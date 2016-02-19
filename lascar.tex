@@ -1,4 +1,4 @@
-The \lascar (LASer CAlibration Rod) card (Figure \ref{fig:laslascar}) is a major component of the \lasii~electronics scheme. This innovative board aims at controlling the \las~system with the following components:
+The \lascar~(LASer CAlibration Rod) card (Figure \ref{fig:laslascar}) is a major component of the \lasii~electronics scheme. This innovative board aims at controlling the \las~system with the following components:
 \begin{itemize}
 
 \item Digitization through a charge analog-to-digital converter (QDC),
@@ -23,7 +23,7 @@ The \lascar (LASer CAlibration Rod) card (Figure \ref{fig:laslascar}) is a major
 \caption{Views of the \lascar~card}\label{fig:laslascar}
 \end{figure}
 
-The \lascar~card is housed in a VME crate and is accessed in the format A32/D32. The heart is composed of an Field Programmable Gate Array (FPGA) Cyclone V manufactured by ALTERA \cite{ref:altera-cyclone}.
+The \lascar~card is housed in a VME crate and is accessed in the format A32/D32. The heart is composed of a Field Programmable Gate Array (FPGA) Cyclone V manufactured by ALTERA \cite{ref:altera-cyclone}.
 
 The following inputs-outputs (Figure \ref{fig:laslascarlinks}) are available:
 \begin{itemize}
@@ -50,7 +50,7 @@ The following inputs-outputs (Figure \ref{fig:laslascarlinks}) are available:
 
 \paragraph{QDC}
 
-The QDC of the \lascar~module (Figure \ref{fig:laslascarqdc}) has 32 channels, each with a 14-bit, high speed, low power, successive approximation ADC that operates from a single 2.5 V power supply and features throughput rates of up to 4.2 MSPS. Each channel contains two ADCs, each preceded by a low noise, wide bandwidth track-and-hold circuit that can handle input frequencies in excess of 110 MHz. This part receives inputs from two charge amplifiers with different slopes ($\times$1 and $\times$4). The analog signal at the entrance of the QDC is integrated during 500 ns (value adjustable through a VME register) and the maximum charge that may be integrated is of ~2000 pC. Analog signals coming from the eleven photodiodes, the two PMTs, and from the charge injection system (3 channels, one internal to the QDC, and 2 from the photodiode box) are converted into digital signals by the QDC. 
+The QDC of the \lascar~module (Figure \ref{fig:laslascarqdc}) has 32 channels, each with a 14-bit\footnote{One of the bits is used to tag the charge (positive or negative) of the input signal. Since the signal we are dealing with are negative, the dynamic range is equivalent to a 13-bit ADC.}, high speed, low power, successive approximation ADC that operates from a single 2.5 V power supply and features throughput rates of up to 4.2 MSPS. Each channel contains two ADCs, each preceded by a low noise, wide bandwidth track-and-hold circuit that can handle input frequencies in excess of 110 MHz. This part receives inputs from two charge amplifiers with different slopes ($\times$1 and $\times$4). The analog signal at the entrance of the QDC is integrated during 500 ns (value adjustable through a VME register) and the maximum charge that may be integrated is of ~2000 pC. Analog signals coming from the eleven photodiodes, the two PMTs, and from the charge injection system (3 channels, one internal to the QDC, and 2 from the photodiode box) are converted into digital signals by the QDC. 
  
 \begin{figure}[htbp]
 
@@ -70,7 +70,7 @@ The LILAS part of \lascar~(Figure \ref{fig:laslascarlilas}) aims at injecting a 
 \end{figure}
 
 \paragraph{TDC}
-The \lascar~TDC (Figure \ref{fig:laslascartdc}) is a TDC-GP1, an integrated device manufactured by ACAM \cite{ref:tdc}. It contains two channels with a typical resolution of 280 ps. This TDC aims at measuring the \las~time response as a function of its intensity. \lascar~card is equipped with a delay system to provide a constant offset from laser request from the SHAFT and the laser pulse irrespective of the laser pulse amplitude. The time response as a function of the intensity has been measured for the \las~(J40-BL6S) we are using (Figure \ref{fig:lasresponse}). Delays between 420 and 320 ps have been measured for \laser~intensities between 10 and 29 amps. The \lascar~card is equipped with a delay system in order to send the \las~light in an "empty" bunch-crossing in a coherent way during the physics runs of the LHC.
+The \lascar~TDC (Figure \ref{fig:laslascartdc}) is a TDC-GP1, an integrated device manufactured by ACAM \cite{ref:tdc}. It contains two channels with a typical resolution of 280 ps. This TDC aims at measuring the \las~time response as a function of its intensity. \lascar~card is equipped with a delay system to provide a constant offset from laser request from the SHAre Few Triggers (SHAFT) module and the laser pulse irrespective of the laser pulse amplitude. The time response as a function of the intensity has been measured for the \las~(J40-BL6S) we are using (Figure \ref{fig:lasresponse}). Delays between 420 and 320 ps have been measured for \laser~intensities between 10 and 29 amps. Thanks to this delay system the \las~light is sent in an "empty" bunch-crossing in a coherent way during the physics runs of the LHC.
 
 \begin{figure}[htbp]
 
@@ -112,7 +112,7 @@ The HOLA card \cite{ref:hola} (Figure \ref{fig:laslascarhola}) has been develope
 
 \paragraph{LASER interface}
 
-This mixed interface (analog and digital) (Figure \ref{fig:laslaserint}) is used to control the \laser~J40-BL6S. The \laser~intensity is set with an analog voltage (from 0 to 4V) and the trigger part is done through a TTL signal.
+This mixed interface (analog and digital) (Figure \ref{fig:laslaserint}) is used to control the \laser~J40-BL6S. The \laser~intensity is set with an analog voltage (from 0 to 4 V) and the trigger part is done through a TTL signal.
 
 \begin{figure}[htbp]
 
@@ -144,13 +144,13 @@ The stand-alone mode can be used to check that the \laser~system is responding a
 
 \end{itemize}
 
-The way the acquisition is triggered for these modes is summarized in Tab. \ref{tab:lascargates}.
+The way the acquisition is triggered for these modes is summarized in Table \ref{tab:lascargates}.
 
 \begin{table}[htbp]
   \begin{center}
     \caption{Gate acquisition origin as a function of the running mode.}\label{tab:lascargates}
     \begin{tabular}{ll}
-      \hline\hline
+      \hline
       Mode & Gate trigger \\
       \hline
       Pedestal & VME register \\

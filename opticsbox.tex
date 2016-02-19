@@ -37,15 +37,15 @@ service room in the ATLAS cavern.
 
 A dedicated black-anodized aluminum box contains the \laser~source and the main optical
 elements to distribute light to the individual Tile modules, to attenuate the light
-intensity and to monitor it. Various details are shown in figure \ref{fig:x.0}. The
+intensity and to monitor it. Various details are shown in Figure \ref{fig:x.0}. The
 optics box has a 50 mm thick aluminum base plate with a 25 mm $\times$ 25 mm M6 hole
 grid; this way, mechanical rigidity of the optical elements 
-placed inside the box is ensured with large flexibility for positioning the
-individual pieces. The lateral walls of the box are made by thin (2 mm) aluminum
+placed inside the box is ensured with large flexibility for positioning of the
+individual pieces. The lateral walls of the box are made out of thin (2 mm) aluminum
 plates to
 reduce the total weight of the box (about 20 Kg, when equipped with all the internal
 elements). The rear panel has patch-panels with feed-throughs for electrical
-connections or fiber connectors for the monitor signals. The top cover is divided
+connections and fiber connectors for the monitor signals. The top cover is divided
 into two parts: a smaller section fixed to the walls with a 6 cm diameter hole to
 allow the insertion of the 400 fiber bundle, and a sliding section to allow for
 inspections.  An interlock system is used to break lasing in case of accidental
@@ -67,18 +67,18 @@ in the text.
 \end{center}
 \end{figure}
 
-The optics box is inserted in a rack located in USA-15 and mounted on an anti-vibration system. 
+The optics box is inserted in a rack located in USA15 and mounted on an anti-vibration system. 
 The same rack hosts the electronics 
 to control the \lasii~system and a patch panel containing about 400 fiber
-couplers. The couplers receive in input the light from each fiber of the bundle
+couplers. The couplers receive the light from each fiber of the bundle
 exiting the optics box; the fraction of light from each input fiber that is transmitted
 ahead is adjusted by acting on the coupler screws. The transmitted light is injected
-into the individual 100 m long fibers feeding mixers inside each detector modules;
-the mixers distribute the light to each PMT of module through short, variable length
+into the individual 100 m long fibers feeding mixers inside each detector module;
+the mixers distribute the light to each PMT of a module through short, variable length
 clear fibers. Pictures of the front and rear sides of the rack containing the
-optics box, the electronics for the \lasii~control and the fiber patch panel are shown in figure \ref{fig:x.1}.
+optics box, the electronics for the \lasii~control and the fiber patch panel are shown in Figure \ref{fig:x.1}.
 
-The optical layout inside the optics box is shown in figure \ref{fig:x.2}. The
+The optical layout inside the optics box is shown in Figure \ref{fig:x.2}. The
 light source is a Q-switched, diode-pumped, solid state 
 \laser~(Spectra Physics model Navigator $J40-BL6S-532Q$ \cite{ref:laser}} with frequency
 doubler ($\lambda = 532$ nm). The individual pulse energy 
@@ -96,24 +96,24 @@ given in the text
 \end{figure}
 %
 
-A small fraction (a few percent of the total intensity) of the beam exiting the \laser~cavity is fed backwards onto a light mixer (position 3 in figure 
+A small fraction (a few percent of the total intensity) of the beam exiting the \laser~cavity is fed backwards onto a light mixer (position 3 in Figure 
 \ref{fig:x.2}) by a splitter placed on the optical path of the primary beam
-(position 2 in figure \ref{fig:x.2}). Five clear fibers collect the light exiting
+(position 2 in Figure \ref{fig:x.2}). Five clear fibers collect the light exiting
 the mixer; two of these fibers are used to send light to the two PMTs contained in the PMT
 ~box (see section \ref{pmtbox}), generating the trigger signal for the DAQ with proper delay
 relative to the \laser~pulse. The other three fibers are routed to three monitor
 diodes (D0-D2) located in the photodiode box (see section \ref{photodiodebox}).  To avoid a too high \laser~power density in the downstream optical elements, the beam spot is expanded from
 about $700 ~\mu$m
 (which is the dimension of the \laser~beam waist at the cavity exit) to about 2 mm by
-a 2.5$\times$ beam-expander(Thorlabs model EL-25-2.5X-A \cite{ref:thorlab}) (position 4 in figure
+a 2.5$\times$ beam-expander (Thorlabs model EL-25-2.5X-A \cite{ref:thorlab}) (position 4 in Figure
 \ref{fig:x.2}). A $45^{\circ}$ dielectric mirror (position 5) reflects the \laser~beam towards the filter wheel (position 6) which hosts 8 neutral density filters
-with different optical densities OD. The filter transmissions range between $100\%$
-(no filter) to $0.3\%$ (OD=2.5). The transmission variation (a factor 300) times a
+with different optical densities (OD). The filter transmissions range between $100\%$
+(no filter) to $0.3\%$ (OD=2.5). The transmission variation (a factor of 300) times a
 factor of about 6 for the range of intensities where the \laser~operation is stable,
 provides a global factor of about 2000. TileCal  PMT responses can thus be calibrated in the
 equivalent energy range [500 MeV, 1 TeV].
 
-One of the two types of the filter wheel can be installed: a home-made and a commercial \cite{ref:filterwheel} one. A picture of the home-made filter wheel is shown in figure \ref{fig:x.3}a and the filter
+One of the two types of the filter wheel can be installed: a home-made and a commercial \cite{ref:filterwheel} one. A picture of the home-made filter wheel is shown in Figure \ref{fig:x.3}a and the filter
 positions on the wheel are shown in Figure \ref{fig:x.3}b and in Table \ref{tab:filterwheelfilt}. This filter wheel is
 moved by a stepping motor with remote numeric control and the filter position is
 controlled by a combined opto-mechanical system which allows for 
@@ -129,20 +129,36 @@ in the PMT box (see section \ref{pmtbox}).
 \end{figure}
 %
 
+%\begin{table*}[!htpb]
+ %\begin{center}
+%\caption{Optical Density (OD) and transmission T of the optical filters located on the filter wheel.}\label{tab:filterwheelfilt}
+ %\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+%\begin{tabular}{ccc|ccc}
+%\hline
+%Position& \multicolumn{2}{c}{Filter}& Position & \multicolumn{2}{c}{Filter}\\
+ %           & OD & T(\%) & & OD & T(\%)  \\
+%\hline
+%1 & 1 & 10 & 5 & 0 & 100 \\
+%2 & 0.2 & 61.6 &  6 & 0.5 & 31.6\\
+%3 & 0.4 & 40.3 & 7 &1.5 & 3 \\
+%4 & 2.5 & 0.3 & 8 & 2 & 1 \\
+%\hline
+%\end{tabular}
+%\caption{Optical Density (OD) of the optical filters on the \laser~light path to the photodiodes.}\label{tab:filterod}
+%\end{center}
+%\end{table*}
+
 \begin{table*}[!htpb]
  \begin{center}
 \caption{Optical Density (OD) and transmission T of the optical filters located on the filter wheel.}\label{tab:filterwheelfilt}
- %\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
-\begin{tabular}{ccc|ccc}
+\begin{tabular}{lcccccccc}
 \hline
-Position& \multicolumn{2}{c}{Filter}& Position & \multicolumn{2}{c}{Filter}\\
-            & OD & T(\%) & & OD & T(\%)  \\
+Position & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
 \hline
-1 & 1 & 10 & 5 & 0 & 100 \\
-2 & 0.2 & 61.6 &  6 & 0.5 & 31.6\\
-3 & 0.4 & 40.3 & 7 &1.5 & 3 \\
-4 & 2.5 & 0.3 & 8 & 2 & 1 \\
+Filter OD & 1 & 0.2 & 0.4 & 2.5 & 0 & 0.5 & 1.5 & 1 \\
 \hline
+Filter T(\%) & 10.0 & 61.6 & 40.3 & 0.3 & 100.0 & 31.6 & 3.0 & 1.0 \\
+\hline 
 \end{tabular}
 %\caption{Optical Density (OD) of the optical filters on the \laser~light path to the photodiodes.}\label{tab:filterod}
 \end{center}
@@ -151,8 +167,8 @@ Position& \multicolumn{2}{c}{Filter}& Position & \multicolumn{2}{c}{Filter}\\
 
  A small fraction (a few percent of the total intensity) of the light transmitted by
 the selected filter on the wheel is fed onto a light mixer (position 8) by a
-splitter placed downstream the wheel (position 7). Both mixers in positions 3 and 8
-are assembled as a wafer of a Poly(methyl methacrylate) (PMMA) (transparent thermoplastic) optical guide between silica diffusers.
+splitter placed downstream of the wheel (position 7). Both mixers in positions 3 and 8
+are assembled as a wafer of a Polymethyl methacrylate (PMMA) transparent thermoplastic optical guide between silica diffusers.
 Three clear fibers collect the light exiting the mixer and they are routed onto
 three monitor photodiodes (D3-D5) located in the photodiode box. As in the case of the
 first mixer (position 3), the redundant information from photodiodes monitoring the
@@ -160,7 +176,7 @@ light intensity at the same point in the optical line allows to control the rela
 stability of their response. 
 
 A second $45^{\circ}$ dielectric mirror (position 9) reflects the \laser~beam towards
-the final beam-expander (position11). A remotely controlled shutter (position 10) is
+the final beam-expander (position 11). A remotely controlled shutter (position 10) is
 placed in between the mirror and the final beam-expander. The shutter is normally
 kept closed during beam collisions to protect the detector PMTs against accidental
 laser emission which could occur in case of failure in the \laser~control system. When the
@@ -172,7 +188,7 @@ of calibrations internal to the \laser~system (described in section \ref{sec:daq
 \laser~calibration of the detector PMTs, takes about one hour. The shutter is also
 open during stable collision periods, whenever a control of the timing for the
 detector PMT responses is required; in this case, \laser~pulses are sent at very low
-frequency (1 Hz) in the time window corresponding to empty bunches in the beam structure. 
+frequency (3 Hz) in the time window corresponding to empty bunches in the beam structure. 
 
 The main element of the optical line is the final beam-expander (position 11). The
 role of this element is to uniformly distribute the incoming light, which has a
@@ -181,7 +197,7 @@ is coupled to the exit of this element. The 400 fiber heads are packed inside a
 plastic collar, after removal of the fiber external protection, in a circular bundle
 30 mm in diameter. Variations of the \laser~beam impact point may induce fiber-to-fiber fluctuations of the light collected at the expander exit. To mitigate this effect, a sophisticated optical system was designed and its constructive parameters were tuned
 during a long commissioning period.  The detailed scheme of this element is shown in
-figure \ref{fig:x.4}.
+Figure \ref{fig:x.4}.
 % 
 \begin{figure}[htb]
 \begin{center} 
@@ -215,7 +231,7 @@ these monitors is used to control the stability of the total amount of light
 transmitted by the full optical system and the stability of the relative fraction of
 light collected by each individual fiber in the bundle.
 
-The performance of the optical system described in this section were studied during
+The performance of the optical system described in this section was studied during
 a long design and test period in a dedicated ATLAS Tile laboratory at CERN during 2014. The system was installed in the service room in the
 ATLAS cavern and coupled to the existing 400 fiber bundle and to the other pieces of
 the whole new \lasii~system in Autumn 2014. The performance of the optical
