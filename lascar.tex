@@ -18,10 +18,13 @@ The \lascar~(LASer CAlibration Rod) card (Figure \ref{fig:laslascar}) is a major
 \begin{figure}[htbp]
 
 \centering
-\includegraphics[height=10cm,width=11cm]{figures/Lascar_photo_black.pdf}
-\includegraphics[height=9cm,width=5cm]{figures/Lascar_Cote.pdf}
+\includegraphics[height=11cm,width=11cm]{figures/Lascar_photo_black.pdf}
+%includegraphics[width=0.5\textwidth]{figures/Lascar_photo_black.pdf}
+\includegraphics[height=10cm,width=4.5cm]{figures/Lascar_Cote.pdf}
+%includegraphics[width=0.5\textwidth]{figures/Lascar_Cote.pdf}
 \caption{Views of the \lascar~card}\label{fig:laslascar}
 \end{figure}
+
 
 The \lascar~card is housed in a VME crate and is accessed in the format A32/D32. The heart is composed of a Field Programmable Gate Array (FPGA) Cyclone V manufactured by ALTERA \cite{ref:altera-cyclone}.
 
@@ -173,6 +176,6 @@ This mode is used in two ways: twice a week when calibration runs are performed 
 
 The modes available are the same as in stand-alone: Pedestal, Alpha, LED, Linearity, Laser. One possibility has been added. The "combined" mode consists in running Pedestal, LED and Alpha modes in a row. For each mode, the sum of the output values and of their squares are calculated and stored in a RAM. These values are then transmitted in a data fragment (through the HOLA card for each L1A and \laser~Trigger Type) when the \laser~mode is activated.
 
-Two kinds of data fragments may be transmitted, depending on the DAQ mode selected (see section \ref{sec:daq}): a short one, used in the LaserCalib (Pedestal+Alpha+LED+Linearity) or LaserAlpha modes , and a long one, used in the Laser mode (\laser~light injected in the PMTs of the TileCal). Each fragment is composed of a header and of a data fragment (see Figures \ref{fig:shortfrag}-\ref{fig:longfragb} in \ref{app}). Information such as the DAQ type (Pedestal, LED, Alpha, Linearity, Laser), number of events, \laser~or charge intensity, raw QDC values of the photodiodes, TDC values, are stored in the short data fragment. The long data fragment contains the same information (but for the \laser~only) and is completed by the sum of the output values of the photodiodes (and of their squares) (for each QDC channel) of the most recent pedestal, alpha and LED runs. These data are transmitted in a sequential way. 
+Two kinds of data fragments may be transmitted, depending on the DAQ mode selected (see section \ref{sec:daq}): a short one, used in the LaserCalib (Pedestal+Alpha+LED+Linearity) or LaserAlpha modes , and a long one, used in the Laser mode (\laser~light injected in the PMTs of the TileCal). Each fragment is composed of a header and of a data fragment (see Figures \ref{fig:shortfrag}-\ref{fig:longfragb} in \ref{app}). Information such as the DAQ type (Pedestal, LED, Alpha, Linearity, Laser), number of events, \laser~or charge intensity, raw QDC values of the photodiodes, TDC values, are stored in the short data fragment. The long data fragment contains the same information (but for the \laser~only) and is completed by the sum of the output values of the photodiodes (and of their squares, for each QDC channel) of the most recent pedestal, alpha and LED runs. These data are transmitted in a sequential way. 
 
 \end{itemize}
